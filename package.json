@@ -16,6 +16,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "https://api.fortnitetracker.com",
   "browserslist": [
     ">0.2%",
     "not dead",
