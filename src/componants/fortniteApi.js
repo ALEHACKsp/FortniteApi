@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import "./FortniteApi.css";
+
+
 
 class FortniteApi extends Component {
   state = {
-    data: null
+    data: null,
+    stats: null,
   };
+
   componentDidMount() {
     this.fetchFortniteData();
   }
@@ -25,12 +30,33 @@ class FortniteApi extends Component {
         return response.json();
       })
       .then(myJson => {
-        this.setState({ data: myJson });
+      
+        const epicName = myJson.epicUserHandle;
+        const lifeTimeStats = myJson.lifeTimeStats;
+        // console.log(lifeTimeStats)
+        this.setState({ data: epicName, stats: lifeTimeStats });
       });
   };
 
   render() {
-    return <h1> {this.state.data && this.state.data.epicUserHandle} </h1>;
+    return <div> 
+    
+    <h1> {this.state.data} </h1>
+    <span > {this.state.stats && this.state.stats.map((data, index) => {
+      // console.log(index)
+      return (
+        <ul className="stats" key={index}>
+        <li>
+        {data.key}
+        {data.value}
+        </li>
+        </ul>
+      )
+    }
+     
+      )}
+    </span>
+    </div>;
   }
 }
 

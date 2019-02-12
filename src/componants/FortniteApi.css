@@ -1,0 +1,15 @@
+h1 {
+    color: white;
+    padding-top: 1rem
+
+}
+
+/* .header {
+    background-color: black;
+    height: 5rem;
+
+} */
+
+.stats {
+    display: flex;
+}

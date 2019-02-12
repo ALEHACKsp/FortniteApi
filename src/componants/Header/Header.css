@@ -1,0 +1,16 @@
+
+
+.username {
+    color: white;
+    padding-top: 1rem
+
+}
+
+.header {
+    background-color: black;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}

@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
-import FortniteApi from "./componants/fortniteApi";
+import FortniteApi from "./componants/FortniteApi";
+import Header from "./componants/Header/Header";
+import Nav from "./componants/Nav/Nav";
 
 class App extends Component {
   render() {
-    return <FortniteApi />;
+    return <div><Header /><Nav /> <FortniteApi /></div> 
+    ;
   }
 }
 
