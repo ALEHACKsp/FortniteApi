@@ -1,20 +1,21 @@
-import React, { Component } from "react";
+import React from 'react';
 import "./Header.css";
 
 
-class Header extends Component {
 
 
+function Header(props) {
+console.log("this is props",props)
 
-  render() {
-    return <div className="header"> <h1 className="username"> display username </h1>
+    return (
+      <div className="header"> <h1 className="username"> {props.props} </h1>
     <form>
     <label>
       <input type="text" name="name" />
     </label>
     <input type="submit" value="Submit" />
-  </form></div> ;
-  }
+  </form></div> 
+    );
 }
 
 export default Header;

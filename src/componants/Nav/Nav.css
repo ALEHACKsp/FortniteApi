@@ -1,4 +1,25 @@
 .nav {
     background-color: grey;
     height: 3rem;
+    font-size: 1.5rem;
 }
+
+ul.navbar {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 0;
+}
+
+li.section {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    text-decoration:none
+}
+
+text-decoration: none;
+color: white;
+font-weight: 600;
+padding-right: 1rem;

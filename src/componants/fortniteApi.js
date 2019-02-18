@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./FortniteApi.css";
-
+import Header from "./Header/Header";
+import Nav from "./Nav/Nav";
 
 
 class FortniteApi extends Component {
@@ -39,15 +40,18 @@ class FortniteApi extends Component {
   };
 
   render() {
-    return <div> 
-    
-    <h1> {this.state.data} </h1>
-    <span > {this.state.stats && this.state.stats.map((data, index) => {
+    return <div className="wrapper"> 
+      <Header props={this.state.data} />
+    <Nav />
+    <div className="statscontainer"  > {this.state.stats && this.state.stats.map((data, index) => {
       // console.log(index)
       return (
         <ul className="stats" key={index}>
-        <li>
-        {data.key}
+        <li className="keystyle">
+        {data.key}:
+        </li>
+      
+        <li className="scorestyle">
         {data.value}
         </li>
         </ul>
@@ -55,7 +59,7 @@ class FortniteApi extends Component {
     }
      
       )}
-    </span>
+    </div>
     </div>;
   }
 }

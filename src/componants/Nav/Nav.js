@@ -1,18 +1,20 @@
-import React, { Component } from "react";
-import "./Nav.css";
+import React from 'react';
+import "./Nav.css"
+// import { Link } from 'react-router-dom';
+import {Arrow} from "./Navarrows"
 
+function Nav() {
 
-class Nav extends Component {
-
-
-
-  render() {
-    return <nav className="nav">
-   <a href="/">Home</a>
-    <a href="/">News</a>
-    <a href="/">Contact</a>
-    <a href="/">About</a></nav>
-  }
+    return (
+        <div className="nav">
+      <ul className="navbar">
+   
+            <li className="section"><a href="/playerstats">Player stats</a><Arrow/></li>
+            <li className="section"><a href="/matchhistory">Match History</a><Arrow/></li>
+            <li className="section"><a href="/store">Store</a><Arrow/></li>
+          </ul>
+        </div>
+    );
 }
 
 export default Nav;
