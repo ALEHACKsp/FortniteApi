@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./FortniteApi.css";
 import Header from "./Header/Header";
 import Nav from "./Nav/Nav";
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 
 class FortniteApi extends Component {
@@ -38,11 +39,20 @@ class FortniteApi extends Component {
         this.setState({ data: epicName, stats: lifeTimeStats });
       });
   };
+//   <Route path="/consent" component={props => (
+//     <Consent
+//         info={this.state.consent}
+//         section="consent"
+//         handleChangeInput={this.handleChangeInput}
+//         toggleChange={this.toggleChange}
+//     />
+// )} />
 
   render() {
     return <div className="wrapper"> 
       <Header props={this.state.data} />
     <Nav />
+    <Route path="/playerstats" component={this.state}/>
     <div className="statscontainer"  > {this.state.stats && this.state.stats.map((data, index) => {
       // console.log(index)
       return (
