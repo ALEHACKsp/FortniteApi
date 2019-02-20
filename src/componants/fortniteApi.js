@@ -105,7 +105,7 @@ class FortniteApi extends Component {
 
   render() {
     return <div className="wrapper"> 
-      <Header props={this.state.data} />
+      <Header user={this.state.data} />
       <Router>
     <div className="nav">
       <ul className="navbar">
@@ -123,7 +123,7 @@ class FortniteApi extends Component {
 
       <Route path="/playerstats" component={props => (
     <Playerstats
-        stats={this.state.stats}  
+        playerstats={this.state.stats}  
     />
 )} />
       <Route path="/matchhistory" component={props => (

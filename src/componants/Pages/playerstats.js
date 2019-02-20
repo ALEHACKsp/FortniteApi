@@ -5,7 +5,7 @@ function Playerstats(props) {
     return (
         <div>
             <h1> this is the player stats page</h1>
-            {props.stats && props.stats.map((data, index) => {
+            {props.playerstats && props.playerstats.map((data, index) => {
   console.log(data)
   return (
     <ul className="stats" key={index}>
