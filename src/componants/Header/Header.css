@@ -1,15 +1,25 @@
 
 
 .username {
-    color: white;
-
+    color: black;
+    font-family: Burbank;
+    font-weight: 900;
+    font-size: 2.5rem;
+    
 }
 
 .header {
-    background-color: black;
+    background-color: white;
     height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+}
+
+
+img.title {
+    width: 8rem;
+    height: auto;
 
 }

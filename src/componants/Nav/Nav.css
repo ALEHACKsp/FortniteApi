@@ -1,11 +1,10 @@
 .nav {
     background-color: grey;
-    height: 3rem;
-    font-size: 1.2rem;
+    height: 4rem;
+    font-size: 0.98rem;
 }
 
 ul.navbar {
-    margin: 0;
     list-style: none;
     display: flex;
     justify-content: space-evenly;
@@ -19,7 +18,3 @@ li.section {
     text-decoration:none
 }
 
-text-decoration: none;
-color: white;
-font-weight: 600;
-padding-right: 1rem;

@@ -2,38 +2,38 @@ import React from 'react';
 import "./Nav.css"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Playerstats from '../Pages/playerstats';
-import Matchhistory from '../Pages/matchhistory'
+import Challanges from '../Pages/challanges'
 import Store from '../Pages/store'
 import {Arrow} from "./Navarrows"
 
 
-function Nav() {
+// function Nav() {
 
-    return (
+//     return (
     
-    <Router>
-    <div className="nav">
-      <ul className="navbar">
-        <li>
-          <Link to="/playerstats">Player stats<Arrow/></Link>
-        </li>
-        <li>
-          <Link to="/matchhistory">Match History<Arrow/></Link>
-        </li>
-        <li>
-          <Link to="/store">Store<Arrow/></Link>
-        </li>
-      </ul>
+//     <Router>
+//     <div className="nav">
+//       <ul className="navbar">
+//         <li>
+//           <Link to="/playerstats">Player stats<Arrow/></Link>
+//         </li>
+//         <li>
+//           <Link to="/challanges">Challanges<Arrow/></Link>
+//         </li>
+//         <li>
+//           <Link to="/store">Store<Arrow/></Link>
+//         </li>
+//       </ul>
 
-      <hr />
+//       <hr />
 
-      <Route exact path="/playerstats" component={Playerstats} />
-      <Route path="/matchhistory" component={Matchhistory} />
-      <Route path="/store" component={Store} />
-    </div>
-  </Router>
+//       <Route exact path="/playerstats" component={Playerstats} />
+//       <Route path="/challanges" component={Challanges} />
+//       <Route path="/store" component={Store} />
+//     </div>
+//   </Router>
       
-    );
-}
+//     );
+// }
 
-export default Nav;
+// export default Nav;

@@ -1,0 +1,36 @@
+
+
+/* body {
+    font-family: Burbank;
+    font-size: 4rem;
+    font-weight: 700;
+} */
+.storedisplay {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 4%;
+    justify-content: space-between;
+}
+
+
+.storeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 21.5%;
+    border: 5px solid grey;
+    border-radius: 10px;
+}
+
+
+
+img {
+    width: 60%
+}
+.vBucks {
+    display: flex;
+    /* width: 25;
+    height: 25; */
+    align-items: center;
+}

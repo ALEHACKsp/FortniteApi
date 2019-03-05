@@ -7,34 +7,6 @@
 
 
 
-.statscontainer {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 1.3rem;
-}
-
-.stats {
-    width: 30%;
-    font-size: 1.3rem;
-    list-style: none;
-    border: 1px solid;
-    border-radius: 5px;
-    background: #d3d3d3;
-    /* padding: 0px 50px 0px 0px; */
-    color: white;
-
-
-}
-.scorestyle {
-    display: flex;
-    justify-content: space-around;
-    color: green;
-}
-.keystyle {
-    font-weight: bold;
-    padding-bottom: 0.5rem;
-    color: black;
-}
 
 @media screen and (max-width: 600px) {
     .wrapper {

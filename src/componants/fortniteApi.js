@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./FortniteApi.css";
 import Header from "./Header/Header";
-import Nav from "./Nav/Nav";
 
+import "./Nav/Nav.css"
 // Import routing components
 import Playerstats from './Pages/playerstats';
-import Matchhistory from './Pages/matchhistory';
+import Challenges from './Pages/challenges';
 import Store from './Pages/store';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {Arrow} from "./Nav/Navarrows";
@@ -15,15 +15,17 @@ class FortniteApi extends Component {
   state = {
     data: null,
     stats: null,
-    history: null,
     store: null,
     status: null,
+    challenges: null,
+    // username: "",
   };
 
   componentDidMount() {
     this.fetchFortniteData();
     this.fetchFortniteStore();
     this.fetchFortniteStatus();
+    this.fetchFortniteChallenges();
   }
 
   componentDidCatch(error, info) {
@@ -61,10 +63,7 @@ class FortniteApi extends Component {
         return response.json();
       })
       .then(myJson => {
-        console.log("Json",myJson)
-        // const epicName = myJson.epicUserHandle;
-        // const lifeTimeStats = myJson.lifeTimeStats;
-        // console.log(lifeTimeStats)
+        
         this.setState({ store: myJson });
       });
   };
@@ -75,37 +74,38 @@ class FortniteApi extends Component {
         return response.json();
       })
       .then(myJson => {
-        console.log("Json",myJson)
-        // const epicName = myJson.epicUserHandle;
-        // const lifeTimeStats = myJson.lifeTimeStats;
-        // // console.log(lifeTimeStats)
+
         this.setState({ status: myJson });
       });
   };
 
 
+  // handleChange = (event) =>{
+    
+  //   console.log("this is the event", event.target.value)
+  //   const value = event.target.value;
+  //   this.setState({username: value})
+  //   }
 
+    fetchFortniteChallenges= () => {
+      fetch("https://fortnite-public-api.theapinetwork.com/prod09/challenges/get?season=current")
+        .then(response => {
+          return response.json();
+        })
+        .then(myJson => {
+          const weeks = myJson;
+          this.setState({ challenges: weeks });
+        });
+    };
 
-// <div className="statscontainer"  > {this.state.stats && this.state.stats.map((data, index) => {
-//   // console.log(index)
-//   return (
-//     <ul className="stats" key={index}>
-//     <li className="keystyle">
-//     {data.key}:
-//     </li>
-  
-//     <li className="scorestyle">
-//     {data.value}
-//     </li>
-//     </ul>
-//   )
-// }
-//   )}
-// </div>
+    
 
   render() {
     return <div className="wrapper"> 
-      <Header user={this.state.data} />
+    
+      <Header user={this.state.data} handleChange={this.handleChange} />
+
+      
       <Router>
     <div className="nav">
       <ul className="navbar">
@@ -113,7 +113,7 @@ class FortniteApi extends Component {
           <Link to="/playerstats">Player stats<Arrow/></Link>
         </li>
         <li>
-          <Link to="/matchhistory">Match History<Arrow/></Link>
+          <Link to="/challenges">Challanges<Arrow/></Link>
         </li>
         <li>
           <Link to="/store">Store<Arrow/></Link>
@@ -126,9 +126,9 @@ class FortniteApi extends Component {
         playerstats={this.state.stats}  
     />
 )} />
-      <Route path="/matchhistory" component={props => (
-    <Matchhistory
-        store={this.state.store}  
+      <Route path="/challenges" component={props => (
+    <Challenges
+    weeks={this.state.challenges}  
     />
 )} />
       <Route path="/store" component={props => (
@@ -136,6 +136,7 @@ class FortniteApi extends Component {
         store={this.state.store}  
     />
 )} />
+
     </div>
   </Router>
     </div>;

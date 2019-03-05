@@ -1,25 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Header.css";
 
-class Header extends Component {
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+const Header = (props) => {
 
-  render() {
+
+  
+  
 
     return (
-      <div className="header"> <h1 className="username">  </h1>
-    <form>
+      <div className="header"> <h1 className="username"> {props.user}  </h1>
+      <img className="title" src="https://www.parisgamesweek.com/media/upload/article/content/Fortnite_Black_Logo.png" alt="fortnite"></img>
+  
+    {/* <form>
     <label>
-      <input type="text" name="name" onChange={this.handleChange}/>
+      <input type="text" name="name" onChange={event => props.handleChange(event) } />
     </label>
-    <input type="submit" value="Submit" />
-  </form></div> 
+  </form> */}
+  </div> 
     );
   }
-}
 
 
 

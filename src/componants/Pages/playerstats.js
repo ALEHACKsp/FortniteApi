@@ -1,12 +1,13 @@
 import React from 'react';
+import './playerstats.css';
 
 function Playerstats(props) {
 
+  // console.log("this is the playerstats com", props)
+
     return (
-        <div>
-            <h1> this is the player stats page</h1>
+        <div className="playercontainer">
             {props.playerstats && props.playerstats.map((data, index) => {
-  console.log(data)
   return (
     <ul className="stats" key={index}>
     <li className="keystyle">
