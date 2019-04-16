@@ -1,15 +1,15 @@
 import React from 'react';
 
 function Challenges(props) {
-
-  
-   if (!props.weeks) {
+//     console.log('props', props.wholeState.challenges)
+//   console.log('challanges', props.state.weeks)
+   if (!props.wholeState.challenges) {
     return null;
    }
 //    console.log("this is the props in challenges", props.weeks.challenges)
-const weeklyChallenges = Object.entries(props.weeks.challenges).map((data) => {
+const weeklyChallenges = Object.entries(props.wholeState.challenges.challenges).map((data) => {
     data[1].map((array,index) => {
-    console.log(array.challenge)
+    // console.log(array.challenge)
     return (
         <div>{array.challenge}</div>
     )
@@ -33,17 +33,17 @@ const weeklyChallenges = Object.entries(props.weeks.challenges).map((data) => {
         </div>
     )
 });
-const currentWeek = Object.keys(props.weeks).map((data) => {
+const currentWeek = Object.keys(props.wholeState.challenges).map((data) => {
                 
     // console.log(data + ': ' + props.weeks[data]);
     if (data === "currentweek") {
      return (
-         <h2> {data + ': ' + props.weeks[data]}</h2>
+         <h2> {data + ': ' + props.wholeState.challenges[data]}</h2>
      )
     }
     if (data === 'season') {
         return (
-            <h2> {data + ': ' + props.weeks[data]}</h2>
+            <h2> {data + ': ' + props.wholeState.challenges[data]}</h2>
         )
     }
 });
@@ -51,6 +51,7 @@ const currentWeek = Object.keys(props.weeks).map((data) => {
 
     return (
         <div>
+            
             <h1>Challenges</h1>
             {currentWeek}
             {weeklyChallenges}   

@@ -1,39 +1,45 @@
-import React from 'react';
-import "./Nav.css"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Playerstats from '../Pages/playerstats';
-import Challanges from '../Pages/challanges'
-import Store from '../Pages/store'
-import {Arrow} from "./Navarrows"
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
+import styled from 'styled-components'
+import { Arrow } from "./Navarrows";
 
-// function Nav() {
+const NavContainer = styled.div`
+background-color: grey;
+height: 4rem;
+font-size: 0.98rem;
+`
 
-//     return (
-    
-//     <Router>
-//     <div className="nav">
-//       <ul className="navbar">
-//         <li>
-//           <Link to="/playerstats">Player stats<Arrow/></Link>
-//         </li>
-//         <li>
-//           <Link to="/challanges">Challanges<Arrow/></Link>
-//         </li>
-//         <li>
-//           <Link to="/store">Store<Arrow/></Link>
-//         </li>
-//       </ul>
+const NavBar = styled.ul`
+list-style: none;
+display: flex;
+justify-content: space-evenly;
+padding-left: 0;
+`
+const NavListItems = styled.li`
+display: flex;
+  align-items: center;
+  width: 30%;
+  text-decoration:none
+`
 
-//       <hr />
+const Nav = (props) => {
+   
+    return (
+    <NavContainer>
+     <NavBar>
+        <NavListItems>
+          <Link to="/playerstats">Player stats<Arrow/></Link>
+        </NavListItems>
+        <NavListItems>
+          <Link to="/challenges">Challanges<Arrow/></Link>
+        </NavListItems>
+        <NavListItems>
+          <Link to="/store">Store<Arrow/></Link>
+        </NavListItems>
+      </NavBar>
+    </NavContainer>
+    );
+}
 
-//       <Route exact path="/playerstats" component={Playerstats} />
-//       <Route path="/challanges" component={Challanges} />
-//       <Route path="/store" component={Store} />
-//     </div>
-//   </Router>
-      
-//     );
-// }
-
-// export default Nav;
+export default Nav;

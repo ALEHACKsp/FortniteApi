@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./FortniteApi.css";
 import Header from "./Header/Header";
+import Nav from "./Nav/Nav";
 
-import "./Nav/Nav.css"
+
 // Import routing components
 import Playerstats from './Pages/playerstats';
 import Challenges from './Pages/challenges';
 import Store from './Pages/store';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
 import {Arrow} from "./Nav/Navarrows";
 
 
@@ -104,41 +105,14 @@ class FortniteApi extends Component {
     return <div className="wrapper"> 
     
       <Header user={this.state.data} handleChange={this.handleChange} />
-
-      
-      <Router>
-    <div className="nav">
-      <ul className="navbar">
-        <li>
-          <Link to="/playerstats">Player stats<Arrow/></Link>
-        </li>
-        <li>
-          <Link to="/challenges">Challanges<Arrow/></Link>
-        </li>
-        <li>
-          <Link to="/store">Store<Arrow/></Link>
-        </li>
-      </ul>
-
-
-      <Route path="/playerstats" component={props => (
-    <Playerstats
-        playerstats={this.state.stats}  
-    />
-)} />
-      <Route path="/challenges" component={props => (
-    <Challenges
-    weeks={this.state.challenges}  
-    />
-)} />
-      <Route path="/store" component={props => (
-    <Store
-        store={this.state.store}  
-    />
-)} />
-
-    </div>
-  </Router>
+      <Nav/>
+      <Switch>
+        <Route exact path="/"/> 
+        <Route exact path="/playerstats" render={()=> <Playerstats wholeState={this.state} />}/>
+        <Route path="/challenges" render={()=> <Challenges wholeState={this.state} />}/>
+        <Route path="/store" render={()=> <Store wholeState={this.state} />}/>
+      </Switch>
+    
     </div>;
   }
 }
