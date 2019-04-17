@@ -1,15 +1,30 @@
 import React, { Component } from "react";
-import "./FortniteApi.css";
+import { Route, Switch} from "react-router-dom";
+import styled from 'styled-components';
+
+// import components;
 import Header from "./Header/Header";
 import Nav from "./Nav/Nav";
 
 
-// Import routing components
+// Import routing pages
 import Playerstats from './Pages/playerstats';
 import Challenges from './Pages/challenges';
 import Store from './Pages/store';
-import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
-import {Arrow} from "./Nav/Navarrows";
+
+
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    // background-color: ${props => (props.whiteColor ? 'blue' : 'black')}
+    font-size: 16px;
+  }
+`
+
+const Wrapper = styled.div`
+margin: 0 auto;
+`
 
 
 class FortniteApi extends Component {
@@ -64,7 +79,6 @@ class FortniteApi extends Component {
         return response.json();
       })
       .then(myJson => {
-        
         this.setState({ store: myJson });
       });
   };
@@ -75,7 +89,6 @@ class FortniteApi extends Component {
         return response.json();
       })
       .then(myJson => {
-
         this.setState({ status: myJson });
       });
   };
@@ -102,18 +115,19 @@ class FortniteApi extends Component {
     
 
   render() {
-    return <div className="wrapper"> 
-    
-      <Header user={this.state.data} handleChange={this.handleChange} />
+    return <Wrapper>
+      <GlobalStyle whiteColor/>
+      <Header user={this.state.data} status={this.state.status} handleChange={this.handleChange} />
       <Nav/>
+      
       <Switch>
         <Route exact path="/"/> 
-        <Route exact path="/playerstats" render={()=> <Playerstats wholeState={this.state} />}/>
+        <Route exact path="/playerstats" render={()=> <Playerstats stats={this.state.stats} />}/>
         <Route path="/challenges" render={()=> <Challenges wholeState={this.state} />}/>
         <Route path="/store" render={()=> <Store wholeState={this.state} />}/>
       </Switch>
-    
-    </div>;
+    </Wrapper>
+  
   }
 }
 

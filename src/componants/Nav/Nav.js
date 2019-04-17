@@ -5,22 +5,27 @@ import styled from 'styled-components'
 import { Arrow } from "./Navarrows";
 
 const NavContainer = styled.div`
-background-color: grey;
-height: 4rem;
-font-size: 0.98rem;
+  background-color: grey;
+  display: flex;
+  height: 4rem;
 `
 
 const NavBar = styled.ul`
-list-style: none;
-display: flex;
-justify-content: space-evenly;
-padding-left: 0;
+  display: flex;
+  padding: 0 1.25rem;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+  text-decoration: none
 `
 const NavListItems = styled.li`
-display: flex;
-  align-items: center;
-  width: 30%;
-  text-decoration:none
+&:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: black;
+}
 `
 
 const Nav = (props) => {
@@ -28,14 +33,17 @@ const Nav = (props) => {
     return (
     <NavContainer>
      <NavBar>
-        <NavListItems>
-          <Link to="/playerstats">Player stats<Arrow/></Link>
+     <NavListItems>
+          <Link to="/">Home</Link>
         </NavListItems>
         <NavListItems>
-          <Link to="/challenges">Challanges<Arrow/></Link>
+          <Link to="/playerstats">Player stats</Link>
         </NavListItems>
         <NavListItems>
-          <Link to="/store">Store<Arrow/></Link>
+          <Link to="/challenges">Challanges</Link>
+        </NavListItems>
+        <NavListItems>
+          <Link to="/store">Store</Link>
         </NavListItems>
       </NavBar>
     </NavContainer>

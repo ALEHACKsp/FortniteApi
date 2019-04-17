@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const HeaderSection = styled.div`
   background-color: white;
@@ -8,26 +9,29 @@ const HeaderSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
-const DisplayUsername = styled.h1`
-  color: black;
+  font-size: 1.5rem;
   font-family: Burbank;
   font-weight: 900;
-  font-size: 2.5rem;
+  color: black;
+  padding: 0 1.25rem;
 `
+
 
 const HeaderLogo = styled.img`
     width: 8rem;
     height: auto;
 `
 
+// Todo - add function that checks the status and display a color effect
 
-const Header = (props) => {
-  
+const Header = ({ user, status }) => {
+
     return (
       <HeaderSection>
-        <DisplayUsername>{props.user}</DisplayUsername>
-      <HeaderLogo src="https://www.parisgamesweek.com/media/upload/article/content/Fortnite_Black_Logo.png" alt="fortnite"></HeaderLogo>
+        <Link to="/"><HeaderLogo src="https://www.parisgamesweek.com/media/upload/article/content/Fortnite_Black_Logo.png" alt="fortnite"></HeaderLogo></Link>
+      
+      <h2>{status && status.message}</h2> 
+      <h1>{user}</h1>
       </HeaderSection>
     );
   }
