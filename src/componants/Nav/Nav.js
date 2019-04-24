@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 
 import styled from 'styled-components'
-import { Arrow } from "./Navarrows";
+// import { Arrow } from "./Navarrows";
 
 const NavContainer = styled.div`
   background-color: grey;

@@ -122,7 +122,7 @@ class FortniteApi extends Component {
       
       <Switch>
         <Route exact path="/"/> 
-        <Route exact path="/playerstats" render={()=> <Playerstats stats={this.state.stats} />}/>
+        <Route path="/playerstats" render={()=> <Playerstats stats={this.state.stats} />}/>
         <Route path="/challenges" render={()=> <Challenges wholeState={this.state} />}/>
         <Route path="/store" render={()=> <Store wholeState={this.state} />}/>
       </Switch>

@@ -28,7 +28,6 @@ const VBucksCard = styled.div`
 
 
 
-
 function Store(props) {
    
     // console.log(props.wholeState.store)

@@ -3,6 +3,56 @@ import React from 'react';
 import styled from 'styled-components';
 
 
+const Wrapper = styled.div`
+margin: 1.25rem;
+overflow: hidden;
+border-left: 1px solid lightgrey;
+`
+
+const SubNavStyle = styled.ul`
+    list-style: none;
+    text-align: center;
+    display: flex;
+    width: 40%; 
+    margin: 0 0 0 -52px;
+    > li { 
+      border: 1px solid #cdcdcd
+      height: 3rem;
+      transform: skew(25deg);
+      width: 100%;
+      > h3 {
+        transform: skew(-25deg);
+      }
+      &:hover {
+        background-color: black;
+        color: white;
+        }
+      
+    }
+
+   
+`
+const InformationContainer = styled.div`
+border: 1px solid lightgrey;
+background-color: lightgrey;
+`
+
+
+const SubNavigation = () => (
+          <SubNavStyle>
+          <li><h3>Lifetime</h3></li>
+          <li><h3>Match History</h3></li>
+          </SubNavStyle>
+)
+
+
+const ScoresSection = styled.p`
+    font-family: BurbankBigCondensed-Black,sans-serif;
+    text-transform: uppercase;
+    font-size: 6rem;
+
+`
+
 
 const Playerstats = ({ stats }) => {
 
@@ -11,7 +61,7 @@ const Playerstats = ({ stats }) => {
     const scoresSection = stats && stats.filter((misc) => misc.key === 'Matches Played' || misc.key === 'Score')
     .map(data => {
      return (
-         <p style={{color: 'red'}}>{data.key} : {data.value}</p>
+         <p style={{color: 'white'}}>{data.key} : {data.value}</p>
      )
     })
     const winsSection = stats && stats.filter((wins) => wins.key.includes('Win'))
@@ -35,13 +85,15 @@ const Playerstats = ({ stats }) => {
  
 
     return (
-        <div>
-        <h1>Lifetime stats</h1>
-        {scoresSection}
+        <Wrapper>
+          <SubNavigation/>
+          <InformationContainer>
+        <ScoresSection>{scoresSection}</ScoresSection>
         {winsSection}
         {killsSection}
         {placementSection}
-        </div>
+        </InformationContainer>
+        </Wrapper>
     );
 }
 
