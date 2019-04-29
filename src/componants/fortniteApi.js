@@ -8,7 +8,8 @@ import Nav from "./Nav/Nav";
 
 
 // Import routing pages
-import Playerstats from './Pages/playerstats';
+import Lifetime from './Pages/Stats/Lifetime';
+import History from './Pages/Stats/History';
 import Challenges from './Pages/challenges';
 import Store from './Pages/store';
 
@@ -34,7 +35,7 @@ class FortniteApi extends Component {
     store: null,
     status: null,
     challenges: null,
-    // username: "",
+    accountID: null,
   };
 
   componentDidMount() {
@@ -64,7 +65,8 @@ class FortniteApi extends Component {
       
         const epicName = myJson.epicUserHandle;
         const lifeTimeStats = myJson.lifeTimeStats;
-        // console.log(lifeTimeStats)
+        const accountID = myJson.recentMatches[0].accountId;
+       console.log('id', accountID)
         this.setState({ data: epicName, stats: lifeTimeStats });
       });
   };
@@ -122,7 +124,8 @@ class FortniteApi extends Component {
       
       <Switch>
         <Route exact path="/"/> 
-        <Route path="/playerstats" render={()=> <Playerstats stats={this.state.stats} />}/>
+        <Route path="/lifetime" render={()=> <Lifetime stats={this.state.stats} />}/>
+        <Route path="/history" render={()=> <History stats={this.state.stats} />}/>
         <Route path="/challenges" render={()=> <Challenges wholeState={this.state} />}/>
         <Route path="/store" render={()=> <Store wholeState={this.state} />}/>
       </Switch>

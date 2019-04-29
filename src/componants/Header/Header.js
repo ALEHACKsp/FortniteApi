@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const HeaderSection = styled.div`
   background-color: white;
-  height: 5rem;
+  height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

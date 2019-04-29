@@ -1,5 +1,5 @@
 import React from 'react';
-import SubNavigation from './Stats/SubNav'
+import SubNavigation from './SubNav'
 import styled from 'styled-components';
 
 
@@ -82,7 +82,7 @@ padding-left: 4rem;
 
 
 
-const Playerstats = ({ stats }) => {
+const Lifetime = ({ stats }) => {
 
   // console.log("this is the playerstats", stats)
 
@@ -138,4 +138,4 @@ const Playerstats = ({ stats }) => {
     );
 }
 
-export default Playerstats;
+export default Lifetime;

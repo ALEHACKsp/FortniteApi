@@ -5,7 +5,7 @@ import styled from 'styled-components'
 // import { Arrow } from "./Navarrows";
 
 const NavContainer = styled.div`
-  background-color: grey;
+  background-color: #2A2A2A;
   display: flex;
   height: 4rem;
 `
@@ -19,12 +19,14 @@ const NavBar = styled.ul`
   justify-content: space-between;
   width: 20%;
   text-decoration: none
+
 `
 const NavListItems = styled.li`
 &:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
-    color: black;
+    color: white;
+    border: 10px solid yellow:
 }
 `
 
@@ -37,7 +39,7 @@ const Nav = (props) => {
           <Link to="/">Home</Link>
         </NavListItems>
         <NavListItems>
-          <Link to="/playerstats">Player stats</Link>
+          <Link to="/lifetime">Player stats</Link>
         </NavListItems>
         <NavListItems>
           <Link to="/challenges">Challanges</Link>
