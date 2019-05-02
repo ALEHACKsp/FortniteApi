@@ -1,109 +1,114 @@
 import React from 'react';
-import SubNavigation from './SubNav'
+import SubNavigation from './SubNav';
 import styled from 'styled-components';
 
+// const moment = require('moment');
 
 const Wrapper = styled.div`
-margin: 1.25rem;
-overflow: hidden;
-border-left: 1px solid lightgrey;
-`
+  margin: 1.25rem;
+  overflow: hidden;
+  border-left: 1px solid lightgrey;
+`;
 
+const TableWrap = styled.div`
+  border: 3px solid lightgrey;
+  background-color: #e9edf1;
+  padding: 2rem 0;
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+`;
+const Table = styled.table`
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  column-count: 2;
+  column-gap: 20px;
+  border-collapse: collapse;
+`;
+const TableRow = styled.tr`
+  font-family: BurbankBigCondensed-black;
+  color: white;
+  font-size: 1.5rem;
+  border-bottom: 20px solid #e9edf1;
+  opacity: 0.7;
 
-const InformationContainer = styled.div`
-display: flex;
-flex-direction: column;
-width: 47%;
+  &.firstTable {
+    background-color: #292929;
+  }
+  &.secondTable {
+    background-color: #292929;
+  }
+  > td {
+    padding: 0.3rem;
+    // border-radius: 10px;
+  }
+`;
+const History = ({ history }) => {
+  const tableResult =
+    history &&
+    history.map((data, index) => {
+      const dateFormat = () => {
+        //     'TODO',
+        //     data.dateCollected.split('T')[0].split('-')[0],
+        //     data.dateCollected.split('T')[0].split('-')[1],
+        //     data.dateCollected.split('T')[0].split('-')[2]
+        // );
+        // const year = data.dateCollected.split('T')[0].split('-')[0];
+        // var day = moment(data.dateCollected._d[1]);
+      };
+      const topKeys = () => {
+        const { top1, top5, top10, top25 } = data;
+        if (top1 > 0) {
+          return <span style={{ color: 'gold' }}>Won</span>;
+        } else if (top5 > 0) {
+          return <span style={{ color: 'green' }}>Top 5</span>;
+        } else if (top10 > 0) {
+          return <span style={{ color: 'orange' }}>Top 10</span>;
+        } else if (top25 > 0) {
+          return <span style={{ color: 'yellow' }}>Top 25</span>;
+        }
+      };
+      if (index < 10) {
+        return (
+          <TableRow className="firstTable">
+            <td>{index + 1}.</td>
+            <td>{data.dateCollected.split('T')[0]}</td>
+            <td>Kills : {data.kills}</td>
+            <td>Place : {topKeys() ? topKeys() : 'NA'}</td>
+          </TableRow>
+        );
+      }
+      if (index > 9) {
+        return (
+          <TableRow className="secondTable">
+            <td>{index + 1}.</td>
+            <td>{data.dateCollected.split('T')[0]}</td>
+            <td>Kills : {data.kills}</td>
+            <td>Place : {topKeys() ? topKeys() : 'NA'}</td>
+          </TableRow>
+        );
+      }
+    });
 
-`
-
-
-
-// const ScoresSection = styled.p`
-//     display: flex;
-//     justify-content: space-around;
-//     font-family: BurbankBigCondensed-black;
-//     width: 100%;
-//     height: 6rem;
-//     text-transform: uppercase;
-//     font-size: 2rem;
-//     font-weight: 900;
-//     background: linear-gradient(to top, #00cc66 0%, #009900 100%);
-//     clip-path: polygon(2% 8%, 98% 2%, 99% 97%, 1% 91%);
-//     margin-left: 2rem;
-  
-// `
-// const SectionText = styled.span`
-// color: white;
-// margin-top: 2rem;
-// `
-
-// const WinsSection = styled(ScoresSection)`
-// background: linear-gradient(to top, #0033cc 21%, #3366ff 78%);
-// margin-left: 5rem;
-// `
-
-// const KillsSection = styled(ScoresSection)`
-// background: linear-gradient(to top, #ff9900 0%, #ff9933 100%);
-// right:0;
-// bottom: 0;
-// margin-right: 3rem;
-// margin-bottom: 4rem;
-// `
-
-const StatsContainer = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-border: 3px solid lightgrey;
-background-color: #e9edf1;
-`
-
-// const PlacementSection = styled(ScoresSection)`
-// display: flex;
-// flex-direction: row;
-// flex-wrap: wrap;
-// place-content: space-evenly;
-// width: 90%;
-// height: 90%;
-// background: linear-gradient(to top, #ffff99 0%, #ffff00 100%);
-// clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 97%);
-
-// `
-
-// const PlacementSectionText = styled.span`
-// font-size: 2.4rem
-// padding-left: 4rem;
-// &:first-child {
-
-// // padding-left: 100px;
-// }
-// `
-
-
-
-const History = () => {
-
-
-    return (
-        <Wrapper>
-        <SubNavigation/>
-        <StatsContainer>
-        <InformationContainer>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        <h1>test</h1>
-        </InformationContainer>
-        
-        </StatsContainer>
-       </Wrapper>
-    );
-}
+  return (
+    <Wrapper>
+      <SubNavigation />
+      <TableWrap>
+        <Table>
+          {/* <thead>
+                <tr>
+                  <th />
+                  <th />
+                  <th>Kills</th>
+                  <th>Place</th>
+                </tr>
+              </thead> */}
+          {tableResult}
+        </Table>
+      </TableWrap>
+    </Wrapper>
+  );
+};
 
 export default History;
