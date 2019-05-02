@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 
 const SubNavStyle = styled.ul`
     list-style: none;
@@ -33,17 +32,18 @@ const SubNavStyle = styled.ul`
           }
         }
     }s
-`
-{/* <Link to="/lifetime">Player stats</Link> */}
-{/* <li><h3>Match History</h3></li> */}
+`;
 
 const SubNavigation = () => (
-    <SubNavStyle>
-   <Link to="/lifetime"><h3>Lifetime</h3></Link>
-    <Link to="/history"><h3>Match History</h3></Link>
+  <SubNavStyle>
+    <Link to="/lifetime">
+      <h3>Lifetime</h3>
+    </Link>
+    <Link to="/history">
+      <h3>Match History</h3>
+    </Link>
     {/* <li><h3>Match History</h3></li> */}
-    </SubNavStyle>
-)
+  </SubNavStyle>
+);
 
-
-export default SubNavigation
+export default SubNavigation;
