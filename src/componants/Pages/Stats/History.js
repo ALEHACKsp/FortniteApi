@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // const moment = require('moment');
 
 const Wrapper = styled.div`
-  margin: 1.25rem;
+  margin: 2.5rem 1.25rem
   overflow: hidden;
   border-left: 1px solid lightgrey;
 `;
@@ -47,7 +47,7 @@ const TableRow = styled.tr`
 const History = ({ history }) => {
   const tableResult =
     history &&
-    history.map((data, index) => {
+    history.map((data, key) => {
       const dateFormat = () => {
         //     'TODO',
         //     data.dateCollected.split('T')[0].split('-')[0],
@@ -69,20 +69,20 @@ const History = ({ history }) => {
           return <span style={{ color: 'yellow' }}>Top 25</span>;
         }
       };
-      if (index < 10) {
+      if (key < 10) {
         return (
-          <TableRow className="firstTable">
-            <td>{index + 1}.</td>
+          <TableRow className="firstTable" key={key}>
+            <td>{key + 1}.</td>
             <td>{data.dateCollected.split('T')[0]}</td>
             <td>Kills : {data.kills}</td>
             <td>Place : {topKeys() ? topKeys() : 'NA'}</td>
           </TableRow>
         );
       }
-      if (index > 9) {
+      if (key > 9) {
         return (
-          <TableRow className="secondTable">
-            <td>{index + 1}.</td>
+          <TableRow className="secondTable" key={key}>
+            <td>{key + 1}.</td>
             <td>{data.dateCollected.split('T')[0]}</td>
             <td>Kills : {data.kills}</td>
             <td>Place : {topKeys() ? topKeys() : 'NA'}</td>
@@ -96,15 +96,15 @@ const History = ({ history }) => {
       <SubNavigation />
       <TableWrap>
         <Table>
-          {/* <thead>
-                <tr>
-                  <th />
-                  <th />
-                  <th>Kills</th>
-                  <th>Place</th>
-                </tr>
-              </thead> */}
-          {tableResult}
+          <thead>
+            <tr>
+              {/* <th />
+              <th />
+              <th>Kills</th>
+              <th>Place</th> */}
+            </tr>
+          </thead>
+          <tbody>{tableResult}</tbody>
         </Table>
       </TableWrap>
     </Wrapper>

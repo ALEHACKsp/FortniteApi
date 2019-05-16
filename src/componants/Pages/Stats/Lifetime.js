@@ -3,7 +3,7 @@ import SubNavigation from './SubNav';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin: 1.25rem;
+  margin: 2.5rem 1.25rem
   overflow: hidden;
   border-left: 1px solid lightgrey;
 `;

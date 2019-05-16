@@ -27,9 +27,10 @@ const Header = ({ user, status }) => {
   return (
     <HeaderSection>
       <Link to="/">
+        Logo
         <HeaderLogo
-          src="https://www.parisgamesweek.com/media/upload/article/content/Fortnite_Black_Logo.png"
-          alt="fortnite"
+        // src="https://www.parisgamesweek.com/media/upload/article/content/Fortnite_Black_Logo.png"
+        // alt="fortnite"
         />
       </Link>
 

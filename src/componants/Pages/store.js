@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const StoreCard = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 21.5%;
+  background-color: #e9edf1;
+  width: 15%;
+  margin-bottom: 30px;
 `;
 const StoreCardImg = styled.img`
   width: 60%;
@@ -15,7 +18,8 @@ const StoreCardImg = styled.img`
 const StoreWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding-top: 4%;
+  margin: 1.25rem;
+  padding-top: 2rem;
   justify-content: space-between;
 `;
 const VBucksCard = styled.div`
@@ -25,11 +29,11 @@ const VBucksCard = styled.div`
   align-items: center;
 `;
 
-function Store(props) {
-  // console.log(props.wholeState.store)
+const Store = ({ store }) => {
+  console.log(store);
   const displayList =
-    props.wholeState.store &&
-    props.wholeState.store.map((data, index) => {
+    store &&
+    store.map((data, index) => {
       return (
         <StoreCard key={index}>
           <h3>{data.name}</h3>
@@ -45,6 +49,6 @@ function Store(props) {
       );
     });
   return <StoreWrapper>{displayList}</StoreWrapper>;
-}
+};
 
 export default Store;
