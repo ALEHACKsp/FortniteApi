@@ -25,33 +25,52 @@ const Text = styled.div`
   margin-left: 20px;
 `;
 const DetailContainer = styled.div`
+  width: 100%;
+  background-color: lightgrey;
+
   &.MuiExpansionPanelDetails-root-45 {
-    border: 1px solid grey;
+    // border: 1px solid grey;
   }
 `;
 
+const WeeksList = styled.ul`
+  // border: 1px solid blue;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Open Sans', arial, sans-serif;
+`;
 const Challenges = ({ challenges }) => {
   const seasonInfo =
     challenges &&
-    Object.keys(challenges).map(data => {
+    Object.keys(challenges).map((data, key) => {
       if (data === 'currentweek') {
-        return <TitleText> {data + ': ' + challenges[data]}</TitleText>;
+        return (
+          <TitleText key={key}> {data + ': ' + challenges[data]}</TitleText>
+        );
       }
       if (data === 'season') {
-        return <TitleText> {data + ': ' + challenges[data]}</TitleText>;
+        return (
+          <TitleText key={key}> {data + ': ' + challenges[data]}</TitleText>
+        );
       }
     });
 
   const weeklyChallenges =
     challenges &&
-    Object.entries(challenges.challenges).map((data, index) => {
+    Object.entries(challenges.challenges).map((data, key) => {
+      if (data[1].length === 0) {
+        return null;
+      }
       return (
-        <div>
+        <div key={key}>
           <ExpansionPanel>
             <ExpansionPanelSummary
               style={{
-                fontSize: '1.5rem',
+                fontSize: '1.2rem',
                 fontWeight: '700',
+                fontFamily: 'arial, sans-serif',
+                linkHeight: '44px',
                 textTransform: 'uppercase',
                 flex: 0,
                 border: '3px solid lightgrey',
@@ -63,12 +82,20 @@ const Challenges = ({ challenges }) => {
             </ExpansionPanelSummary>
             <ExpansionPanelDetails
               style={{
-                border: '3px solid lightgrey'
+                border: '3px solid lightgrey',
+                padding: '0'
               }}
             >
               <DetailContainer>
-                {data[1].map(list => {
-                  return <p>{list.challenge}</p>;
+                {data[1].map((list, count, key) => {
+                  return (
+                    <div key={count}>
+                      <WeeksList>
+                        {count + 1}. {list.challenge}
+                        {/* Difficulty:{list.difficulty} */}
+                      </WeeksList>
+                    </div>
+                  );
                 })}
               </DetailContainer>
             </ExpansionPanelDetails>

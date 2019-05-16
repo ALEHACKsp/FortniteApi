@@ -8,7 +8,9 @@ const SubNavStyle = styled.ul`
     display: flex;
     width: 40%; 
     margin: 0 0 0 -52px;
-
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Open Sans', arial, sans-serif;
     > a { 
       border: 3px solid #cdcdcd;
       background-color: #e9edf1;
