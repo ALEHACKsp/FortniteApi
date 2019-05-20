@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+// import { Route, Switch, Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 // import components;
-import Header from './Header/Header';
+// import Header from './Header/Header';
 import Nav from './Nav/Nav';
+import Footer from './Footer/Footer';
 
 // Import routing pages
-import Home from './Pages/Home';
-import Lifetime from './Pages/Stats/Lifetime';
-import History from './Pages/Stats/History';
-import Challenges from './Pages/Challenges';
-import Store from './Pages/Store';
 
+import RouterComponent from './Pages/RouterComponent';
+
+// Import Error pages
+
+// import NotFound from './Error/NotFound';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   body {
     // background-color: ${props => (props.whiteColor ? 'blue' : 'black')}
     // overflow-y: 1;
+    // overflow-y:hidden;
     font-size: 16px;
   }
 `;
@@ -35,13 +37,12 @@ class FortniteApi extends Component {
     status: null,
     challenges: null,
     history: null,
-    id: null,
-    username: null
+    id: null
   };
 
   componentDidMount() {
     this.fetchFortniteStore();
-    this.fetchFortniteStatus();
+    // this.fetchFortniteStatus();
     this.fetchFortniteChallenges();
   }
 
@@ -52,30 +53,34 @@ class FortniteApi extends Component {
     console.log('error', error);
   }
 
-  fetchFortniteData = (username, location) => {
-    console.log('username from prop', username);
-    fetch(`/v1/profile/pc/${username}`, {
-      headers: new Headers({
-        'TRN-Api-Key': process.env.REACT_APP_TRN
+  fetchFortniteData = username => {
+    return new Promise((resolve, reject) => {
+      fetch(`/v1/profile/pc/${username}`, {
+        headers: new Headers({
+          'TRN-Api-Key': process.env.REACT_APP_TRN
+        })
       })
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(myJson => {
-        const epicName = myJson.epicUserHandle;
-        const lifeTimeStats = myJson.lifeTimeStats;
-        const accountID = myJson.recentMatches[0].accountId;
-        this.setState({
-          name: epicName,
-          stats: lifeTimeStats,
-          id: accountID
+        .then(response => {
+          return response.json();
+        })
+        .then(myJson => {
+          const epicName = myJson.epicUserHandle;
+          const lifeTimeStats = myJson.lifeTimeStats;
+          const accountID = myJson.recentMatches[0].accountId;
+          this.setState({
+            name: epicName,
+            stats: lifeTimeStats,
+            id: accountID
+          });
+          this.fetchFortniteMatchHistory(accountID);
+          resolve('Success');
+          return accountID;
+        })
+        .catch(error => {
+          reject(error);
+          return error;
         });
-        this.fetchFortniteMatchHistory(accountID);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    });
   };
 
   fetchFortniteStore = () => {
@@ -106,7 +111,13 @@ class FortniteApi extends Component {
 
   fetchFortniteChallenges = () => {
     fetch(
-      'https://fortnite-public-api.theapinetwork.com/prod09/challenges/get?season=current'
+      'https://fortnite-public-api.theapinetwork.com/prod09/challenges/get?season=current',
+      {
+        headers: new Headers({
+          Authorization: 'a640bb28c19e78924fc782dadce360f3'
+          // 'api-key': 'a640bb28c19e78924fc782dadce360f3'
+        })
+      }
     )
       .then(response => {
         return response.json();
@@ -118,7 +129,6 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteMatchHistory = accountID => {
-    console.log('this is history', accountID);
     fetch(`/v1/profile/account/${accountID}/matches`, {
       headers: new Headers({
         'TRN-Api-Key': process.env.REACT_APP_TRN
@@ -142,36 +152,14 @@ class FortniteApi extends Component {
           status={this.state.status}
         /> */}
         <Nav user={this.state.name} />
-
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={location => (
-              <Home
-                fetchData={this.fetchFortniteData}
-                location={location}
-                username={this.userInput}
-              />
-            )}
-          />
-          <Route
-            path="/lifetime"
-            render={() => <Lifetime stats={this.state.stats} />}
-          />
-          <Route
-            path="/history"
-            render={() => <History history={this.state.history} />}
-          />
-          <Route
-            path="/challenges"
-            render={() => <Challenges challenges={this.state.challenges} />}
-          />
-          <Route
-            path="/store"
-            render={() => <Store store={this.state.store} />}
-          />
-        </Switch>
+        <RouterComponent
+          fetchData={this.fetchFortniteData}
+          stats={this.state.stats}
+          history={this.state.history}
+          challenges={this.state.challenges}
+          store={this.state.store}
+        />
+        <Footer />
       </Wrapper>
     );
   }

@@ -23,7 +23,7 @@ const NavBar = styled.ul`
   text-transform: uppercase;
   align-items: center;
   justify-content: space-around;
-  width: 25%;
+  width: 80%;
   text-decoration: none;
   box-sizing: border-box;
 `;
@@ -52,7 +52,9 @@ const Username = styled.span`
   right: 0;
   margin-top: 1rem;
   font-size: 1.5rem;
+  font-weight: 700;
   padding-right: 1rem;
+  color: green;
 `;
 
 const Nav = ({ user }) => {

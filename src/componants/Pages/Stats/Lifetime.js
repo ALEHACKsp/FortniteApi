@@ -21,7 +21,7 @@ const ScoresSection = styled.p`
   width: 100%;
   height: 6rem;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 900;
   background: linear-gradient(to top, #00cc66 0%, #009900 100%);
   clip-path: polygon(2% 8%, 98% 2%, 99% 97%, 1% 91%);
@@ -73,9 +73,11 @@ padding-left: 4rem;
 }
 `;
 
-const Lifetime = ({ stats }) => {
-  // console.log("this is the playerstats", stats)
-
+const Lifetime = ({ stats, location }) => {
+  // console.log('stats', stats);
+  // if (stats === null) {
+  //   return location.history.push('/');
+  // }
   const scoresSection =
     stats &&
     stats

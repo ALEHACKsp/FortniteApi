@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   margin: 2.5rem 1.25rem
   overflow: hidden;
   border-left: 1px solid lightgrey;
+  // overflow-y:hidden;
 `;
 
 const TableWrap = styled.div`

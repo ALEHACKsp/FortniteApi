@@ -9,6 +9,7 @@ const StoreCard = styled.div`
   align-items: center;
   background-color: #e9edf1;
   width: 15%;
+  border-radius: 0.8rem;
   margin-bottom: 30px;
 `;
 const StoreCardImg = styled.img`
@@ -30,7 +31,7 @@ const VBucksCard = styled.div`
 `;
 
 const Store = ({ store }) => {
-  console.log(store);
+  // console.log(store);
   const displayList =
     store &&
     store.map((data, index) => {

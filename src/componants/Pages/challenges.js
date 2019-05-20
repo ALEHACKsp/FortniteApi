@@ -59,6 +59,7 @@ const Challenges = ({ challenges }) => {
   const weeklyChallenges =
     challenges &&
     Object.entries(challenges.challenges).map((data, key) => {
+      // console.log('data', data[1].value);
       if (data[1].length === 0) {
         return null;
       }
@@ -78,7 +79,7 @@ const Challenges = ({ challenges }) => {
                 padding: '3px 3px'
               }}
             >
-              <Text>{data[0]}</Text>
+              <Text>{data[1].value}</Text>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails
               style={{
@@ -87,7 +88,7 @@ const Challenges = ({ challenges }) => {
               }}
             >
               <DetailContainer>
-                {data[1].map((list, count, key) => {
+                {data[1].entries.map((list, count, key) => {
                   return (
                     <div key={count}>
                       <WeeksList>
