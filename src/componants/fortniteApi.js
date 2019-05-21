@@ -114,8 +114,8 @@ class FortniteApi extends Component {
       'https://fortnite-public-api.theapinetwork.com/prod09/challenges/get?season=current',
       {
         headers: new Headers({
-          Authorization: 'a640bb28c19e78924fc782dadce360f3'
-          // 'api-key': 'a640bb28c19e78924fc782dadce360f3'
+          Authorization: process.env.REACT_APP_AUTH
+          // 'api-key': 'a640bb28c19e78924fc782dadce360f3' 'Bearer ' +
         })
       }
     )

@@ -66,12 +66,24 @@ const Home = ({ fetchData, location }) => {
             );
           }}
         >
-          <div style={{ height: '30px', border: '1px solid red' }}>
+          <div
+            style={{
+              height: '2rem',
+              // border: '1px solid red',
+              overflow: 'hidden',
+              width: '70%'
+            }}
+          >
             <input
               type="text"
               value={value}
-              placeholder="Enter username    'Ninja' "
-              style={{ width: '80%', height: '100%' }}
+              placeholder="Enter  'Ninja' "
+              style={{
+                width: '80%',
+                height: '100%',
+                border: '0',
+                padding: '0'
+              }}
               onChange={onChange}
             />
             <input
@@ -81,9 +93,11 @@ const Home = ({ fetchData, location }) => {
                 opacity: '0.5',
                 background: 'lightgreen',
                 height: '100%',
-                width: '50px',
+                width: '20%',
                 color: 'black',
-                margin: 0
+                margin: 0,
+                border: '0',
+                padding: '0'
               }}
             />
           </div>
