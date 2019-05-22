@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -16,26 +16,13 @@ const RouteStyle = styled.div`
   width: 100vw;
 `;
 
-// to implement protectedroutes
 // export const ProtectedRoute = ({ component: Component, id, ...rest }) => (
 //   console.log('id check:', id),
 //   (
 //     <Route
 //       {...rest}
 //       render={props =>
-//         id ? (
-//           <Component {...props} />
-//         ) : (
-//           <Redirect
-//             to={{
-//               pathname: '/',
-//               state: {
-//                 from: props.location,
-//                 redirected: true
-//               }
-//             }}
-//           />
-//         )
+//         id ? <Component {...props} /> : <Redirect to="/lifetime" />
 //       }
 //     />
 //   )
@@ -61,7 +48,13 @@ const RouterComponent = ({
         />
         <Route
           path="/lifetime"
-          render={location => <Lifetime stats={stats} location={location} />}
+          render={location =>
+            id !== null ? (
+              <Lifetime stats={stats} location={location} />
+            ) : (
+              <Redirect to="/" />
+            )
+          }
         />
         <Route path="/history" render={() => <History history={history} />} />
         <Route

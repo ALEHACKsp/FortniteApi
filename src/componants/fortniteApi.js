@@ -42,7 +42,6 @@ class FortniteApi extends Component {
 
   componentDidMount() {
     this.fetchFortniteStore();
-    // this.fetchFortniteStatus();
     this.fetchFortniteChallenges();
   }
 
@@ -97,18 +96,6 @@ class FortniteApi extends Component {
       });
   };
 
-  fetchFortniteStatus = () => {
-    fetch(
-      'https://fortnite-public-api.theapinetwork.com/prod09/status/fortnite_server_status'
-    )
-      .then(response => {
-        return response.json();
-      })
-      .then(myJson => {
-        this.setState({ status: myJson });
-      });
-  };
-
   fetchFortniteChallenges = () => {
     fetch(
       'https://fortnite-public-api.theapinetwork.com/prod09/challenges/get?season=current',
@@ -158,6 +145,7 @@ class FortniteApi extends Component {
           history={this.state.history}
           challenges={this.state.challenges}
           store={this.state.store}
+          id={this.state.id}
         />
         <Footer />
       </Wrapper>
