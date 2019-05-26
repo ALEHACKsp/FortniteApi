@@ -1,7 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
+
+import CheeseburgerMenu from 'cheeseburger-menu';
+import HamburgerMenu from 'react-hamburger-menu';
+
 // import { Arrow } from "./Navarrows";
 
 const NavContainer = styled.div`
@@ -26,22 +30,22 @@ const NavBar = styled.ul`
   width: 80%;
   text-decoration: none;
   box-sizing: border-box;
+  @media (max-width: 748px) {
+    display: none;
+  }
 `;
 const NavListItems = styled.li`
-  box-sizing: border-box
-
   &:hover {
     border-bottom: 5px solid #ffd8ff;
     box-sizing: border-box;
   }
 
   &:hover,
+  &.active,
   a:visited,
-  a:link,
-  a:active {
+  a:link {
     text-decoration: none;
     color: white;
-    // border: 10px solid #FFD8FF:
     box-sizing: border-box;
   }
 `;
@@ -57,26 +61,120 @@ const Username = styled.span`
   color: green;
 `;
 
-const Nav = ({ user }) => {
-  return (
-    <NavContainer>
-      <NavBar>
-        <NavListItems>
-          <Link to="/">Home</Link>
-        </NavListItems>
-        <NavListItems>
-          <Link to="/lifetime">Player stats</Link>
-        </NavListItems>
-        <NavListItems>
-          <Link to="/challenges">Challanges</Link>
-        </NavListItems>
-        <NavListItems>
-          <Link to="/store">Store</Link>
-        </NavListItems>
-      </NavBar>
-      <Username>{user}</Username>
-    </NavContainer>
-  );
-};
+const MobileMenu = styled.div`
+  margin-left: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 748px) {
+    display: none;
+  }
+`;
+
+const MobileNavList = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 15px;
+  text-decoration: none;
+
+  > a {
+    padding: 1rem 0 1rem 0;
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid #ddd;
+    color: white;
+    &.active {
+      border-right: 10px solid #ffd8ff;
+    }
+  }
+`;
+
+class Nav extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      menuOpen: false
+    };
+  }
+
+  openMenu() {
+    this.setState({ menuOpen: true });
+  }
+
+  closeMenu() {
+    this.setState({ menuOpen: false });
+  }
+
+  render() {
+    const { user } = this.props;
+
+    return (
+      <NavContainer>
+        <MobileMenu className="on-mobile">
+          <CheeseburgerMenu
+            isOpen={this.state.menuOpen}
+            closeCallback={this.closeMenu.bind(this)}
+            width={'50%'}
+            backgroundColor={'#73787B'}
+            display={'flex'}
+            flexDirection={'column'}
+          >
+            <MobileNavList className="test">
+              <NavLink exact to="/" activeClassName="active">
+                Home
+              </NavLink>
+              <NavLink to="/lifetime" activeClassName="active">
+                Player stats
+              </NavLink>
+              <NavLink to="/challenges" activeClassName="active">
+                Challanges
+              </NavLink>
+              <NavLink to="/store" activeClassName="active">
+                Daily Store
+              </NavLink>
+            </MobileNavList>
+          </CheeseburgerMenu>
+
+          <HamburgerMenu
+            menuClicked={this.openMenu.bind(this)}
+            isOpen={this.state.menuOpen}
+            width={40}
+            height={35}
+            strokeWidth={3}
+            rotate={0}
+            color="white"
+            marginTop={10}
+            borderRadius={0}
+            animationDuration={0.5}
+          />
+        </MobileMenu>
+        <NavBar>
+          <NavListItems>
+            <NavLink to="/" activeClassName="active">
+              Home
+            </NavLink>
+          </NavListItems>
+          <NavListItems>
+            <NavLink to="/lifetime" activeClassName="active">
+              Player stats
+            </NavLink>
+          </NavListItems>
+          <NavListItems>
+            <NavLink to="/challenges" activeClassName="active">
+              Challanges
+            </NavLink>
+          </NavListItems>
+          <NavListItems>
+            <NavLink to="/store" activeClassName="active">
+              Store
+            </NavLink>
+          </NavListItems>
+        </NavBar>
+        <Username>{user}</Username>
+      </NavContainer>
+    );
+  }
+}
 
 export default Nav;

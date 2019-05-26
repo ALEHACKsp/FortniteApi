@@ -14,7 +14,7 @@ const HomePage = styled.div`
 `;
 
 const InputSearch = styled.div`
-  width: 30%;
+  width: 40%;
   position: absolute;
   // right: 0;
   padding-left: 30px;

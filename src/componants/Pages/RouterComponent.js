@@ -56,7 +56,12 @@ const RouterComponent = ({
             )
           }
         />
-        <Route path="/history" render={() => <History history={history} />} />
+        <Route
+          path="/history"
+          render={() =>
+            id !== null ? <History history={history} /> : <Redirect to="/" />
+          }
+        />
         <Route
           path="/challenges"
           render={() => <Challenges challenges={challenges} />}

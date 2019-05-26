@@ -18,6 +18,9 @@ const TableWrap = styled.div`
   column-count: 2;
   -moz-column-count: 2;
   -webkit-column-count: 2;
+  @media (max-width: 748px) {
+   display: flex;
+   width: 100%
 `;
 const Table = styled.table`
   width: 80%;

@@ -11,6 +11,9 @@ const StoreCard = styled.div`
   width: 15%;
   border-radius: 0.8rem;
   margin-bottom: 30px;
+  @media (max-width: 748px) {
+    width: 90%;
+  }
 `;
 const StoreCardImg = styled.img`
   width: 60%;
@@ -22,6 +25,10 @@ const StoreWrapper = styled.div`
   margin: 1.25rem;
   padding-top: 2rem;
   justify-content: space-between;
+  @media (max-width: 748px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const VBucksCard = styled.div`
   display: flex;

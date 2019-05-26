@@ -11,6 +11,9 @@ const SubNavStyle = styled.ul`
   font-size: 14px;
   font-weight: 700;
   font-family: 'Open Sans', arial, sans-serif;
+  @media (max-width: 748px) {
+    width: 90%;
+  }
   > a {
     border: 3px solid #cdcdcd;
     background-color: #e9edf1;

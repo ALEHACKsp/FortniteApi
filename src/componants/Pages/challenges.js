@@ -20,6 +20,9 @@ const TitleText = styled.p`
   font-size: 2rem;
   font-weight: 900;
   margin-left: 20px;
+  @media (max-width: 748px) {
+    margin-left: 0;
+  }
 `;
 const Text = styled.div`
   margin-left: 20px;
