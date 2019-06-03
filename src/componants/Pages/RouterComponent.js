@@ -9,8 +9,8 @@ import styled from 'styled-components';
 import Home from './Home';
 import Lifetime from './Stats/Lifetime';
 import History from './Stats/History';
-import Challenges from './Challenges';
-import Store from './Store';
+import Challenges from './challenges';
+import Store from './store';
 
 const RouteStyle = styled.div`
   width: 100vw;

@@ -115,7 +115,7 @@ class Nav extends Component {
           <CheeseburgerMenu
             isOpen={this.state.menuOpen}
             closeCallback={this.closeMenu.bind(this)}
-            width={'50%'}
+            width={200}
             backgroundColor={'#73787B'}
             display={'flex'}
             flexDirection={'column'}

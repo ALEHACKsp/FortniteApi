@@ -53,11 +53,16 @@ class FortniteApi extends Component {
   }
 
   fetchFortniteData = username => {
+    console.log('key: ', process.env.REACT_APP_TRN);
+    
     return new Promise((resolve, reject) => {
-      fetch(`/v1/profile/pc/${username}`, {
-        headers: new Headers({
-          'TRN-Api-Key': process.env.REACT_APP_TRN
-        })
+      fetch(`https://api.fortnitetracker.com/v1/profile/pc/${username}`, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, cors, *same-origin
+        headers: {
+          'Content-Type': 'application/json',
+          'X-TRN-API-KEY' : process.env.REACT_APP_TRN 
+        }
       })
         .then(response => {
           return response.json();
@@ -83,7 +88,7 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteStore = () => {
-    fetch('/v1/store', {
+    fetch('https://api.fortnitetracker.com/v1/store', {
       headers: new Headers({
         'TRN-Api-Key': process.env.REACT_APP_TRN
       })
@@ -116,10 +121,13 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteMatchHistory = accountID => {
-    fetch(`/v1/profile/account/${accountID}/matches`, {
-      headers: new Headers({
+    console.log('key: ', process.env.REACT_APP_TRN);
+    
+    fetch(`https://api.fortnitetracker.com/v1/profile/account/${accountID}/matches`, {
+      method: 'GET',
+      headers: {
         'TRN-Api-Key': process.env.REACT_APP_TRN
-      })
+      }
     })
       .then(response => {
         return response.json();
