@@ -12,6 +12,9 @@ const InformationContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 47%;
+  @media (max-width: 748px) {
+    width: 100%;
+  }
 `;
 
 const ScoresSection = styled.p`
@@ -26,6 +29,12 @@ const ScoresSection = styled.p`
   background: linear-gradient(to top, #00cc66 0%, #009900 100%);
   clip-path: polygon(2% 8%, 98% 2%, 99% 97%, 1% 91%);
   margin-left: 2rem;
+  @media (max-width: 748px) {
+    margin: 0.5rem 0 0.5rem 0;
+    font-size: 1.3rem;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
 `;
 const SectionText = styled.span`
   color: white;
@@ -51,6 +60,9 @@ const StatsContainer = styled.div`
   justify-content: space-between;
   border: 3px solid lightgrey;
   background-color: #e9edf1;
+  @media (max-width: 748px) {
+    flex-direction: column;
+  }
 `;
 
 const PlacementSection = styled(ScoresSection)`
@@ -67,9 +79,11 @@ const PlacementSection = styled(ScoresSection)`
 const PlacementSectionText = styled.span`
 font-size: 2.4rem
 padding-left: 4rem;
+@media (max-width: 748px) {
+padding: 1rem;
+}
 &:first-child {
 
-// padding-left: 100px;
 }
 `;
 

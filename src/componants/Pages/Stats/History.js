@@ -19,8 +19,9 @@ const TableWrap = styled.div`
   -moz-column-count: 2;
   -webkit-column-count: 2;
   @media (max-width: 748px) {
-   display: flex;
-   width: 100%
+    display: flex;
+    width: 100%;
+  }
 `;
 const Table = styled.table`
   width: 80%;
@@ -29,6 +30,9 @@ const Table = styled.table`
   column-count: 2;
   column-gap: 20px;
   border-collapse: collapse;
+  @media (max-width: 748px) {
+    width: 90%;
+  }
 `;
 const TableRow = styled.tr`
   font-family: BurbankBigCondensed-black;
@@ -78,8 +82,8 @@ const History = ({ history }) => {
           <TableRow className="firstTable" key={key}>
             <td>{key + 1}.</td>
             <td>{data.dateCollected.split('T')[0]}</td>
-            <td>Kills : {data.kills}</td>
-            <td>Place : {topKeys() ? topKeys() : 'NA'}</td>
+            <td>Kills: {data.kills}</td>
+            <td>{topKeys() ? topKeys() : 'N/A'}</td>
           </TableRow>
         );
       }
@@ -88,8 +92,8 @@ const History = ({ history }) => {
           <TableRow className="secondTable" key={key}>
             <td>{key + 1}.</td>
             <td>{data.dateCollected.split('T')[0]}</td>
-            <td>Kills : {data.kills}</td>
-            <td>Place : {topKeys() ? topKeys() : 'NA'}</td>
+            <td>Kills: {data.kills}</td>
+            <td>{topKeys() ? topKeys() : 'N/A'}</td>
           </TableRow>
         );
       }

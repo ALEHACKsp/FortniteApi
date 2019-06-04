@@ -16,10 +16,14 @@ const HomePage = styled.div`
 const InputSearch = styled.div`
   width: 40%;
   position: absolute;
-  // right: 0;
   padding-left: 30px;
   top: 0;
   margin-top: 13rem;
+  @media (max-width: 748px) {
+    width: 70%;
+    bottom: 0;
+    margin-bottom: 16rem;
+  }
 `;
 
 const Home = ({ fetchData, location }) => {
@@ -71,13 +75,13 @@ const Home = ({ fetchData, location }) => {
               height: '2rem',
               // border: '1px solid red',
               overflow: 'hidden',
-              width: '70%'
+              width: '100%'
             }}
           >
             <input
               type="text"
               value={value}
-              placeholder="Enter  'Ninja' "
+              placeholder=" 'Ninja' "
               style={{
                 width: '80%',
                 height: '100%',
