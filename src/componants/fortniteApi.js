@@ -54,9 +54,9 @@ class FortniteApi extends Component {
 
   fetchFortniteData = username => {
     return new Promise((resolve, reject) => {
-      fetch(`/v1/profile/pc/${username}`, {
+      fetch(`https://api.fortnitetracker.com//v1/profile/pc/${username}`, {
         headers: new Headers({
-          'TRN-Api-Key': process.env.REACT_APP_TRN
+          'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
         })
       })
         .then(response => {
@@ -83,9 +83,9 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteStore = () => {
-    fetch('/v1/store', {
+    fetch('https://api.fortnitetracker.com/v1/store', {
       headers: new Headers({
-        'TRN-Api-Key': process.env.REACT_APP_TRN
+        'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
       })
     })
       .then(response => {

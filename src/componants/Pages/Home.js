@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import backgroundImage from './fortnite-loading-screen-stratus.jpg';
 import styled from 'styled-components';
 
 const HomePage = styled.div`
@@ -41,10 +41,7 @@ const Home = ({ fetchData, location }) => {
 
   return (
     <HomePage>
-      <img
-        alt=""
-        src="https://progameguides.com/wp-content/uploads/2019/05/fortnite-loading-screen-stratus.jpg"
-      />
+      <img alt="" src={backgroundImage} />
       <InputSearch>
         <h1
           style={{
