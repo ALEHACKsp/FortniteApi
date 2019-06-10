@@ -38,7 +38,8 @@ const VBucksCard = styled.div`
 `;
 
 const Store = ({ store }) => {
-  // console.log(store);
+  console.log(store);
+
   const displayList =
     store &&
     store.map((data, index) => {

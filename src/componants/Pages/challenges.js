@@ -17,7 +17,7 @@ const TitleText = styled.p`
   font-family: BurbankBigCondensed-black;
   color: black;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 900;
   margin-left: 20px;
   @media (max-width: 748px) {

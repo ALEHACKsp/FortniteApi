@@ -16,6 +16,8 @@ import RouterComponent from './Pages/RouterComponent';
 // import NotFound from './Error/NotFound';
 import { createGlobalStyle } from 'styled-components';
 
+
+
 const GlobalStyle = createGlobalStyle`
   body {
     // background-color: ${props => (props.whiteColor ? 'blue' : 'black')}
@@ -46,18 +48,15 @@ class FortniteApi extends Component {
   }
 
   componentDidCatch(error, info) {
-    // Display fallback UI
-    // this.setState({ hasError: true });
-    // You can also log the error to an error reporting service
     console.log('error', error);
   }
 
   fetchFortniteData = username => {
     return new Promise((resolve, reject) => {
-      fetch(`https://api.fortnitetracker.com//v1/profile/pc/${username}`, {
-        headers: new Headers({
-          'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
-        })
+      fetch(`http://localhost:8080/api/stats?username=${username}`, {
+        // headers: new Headers({
+        //   'username': username
+        // }),
       })
         .then(response => {
           return response.json();
@@ -83,11 +82,13 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteStore = () => {
-    fetch('https://api.fortnitetracker.com/v1/store', {
-      headers: new Headers({
-        'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
-      })
-    })
+    fetch('http://localhost:8080/api/store', 
+    {
+      // headers: new Headers({
+      //   'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
+      // })
+    }
+    )
       .then(response => {
         return response.json();
       })
@@ -102,7 +103,6 @@ class FortniteApi extends Component {
       {
         headers: new Headers({
           Authorization: 'a640bb28c19e78924fc782dadce360f3'
-          // 'api-key': 'a640bb28c19e78924fc782dadce360f3' 'Bearer ' +
         })
       }
     )
@@ -116,10 +116,10 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteMatchHistory = accountID => {
-    fetch(`/v1/profile/account/${accountID}/matches`, {
-      headers: new Headers({
-        'TRN-Api-Key': process.env.REACT_APP_TRN
-      })
+    fetch(`http://localhost:8080/api/history?accountID=${accountID}`, {
+      // headers: new Headers({
+      //   'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
+      // })
     })
       .then(response => {
         return response.json();
