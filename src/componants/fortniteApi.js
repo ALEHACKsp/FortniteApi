@@ -53,7 +53,7 @@ class FortniteApi extends Component {
 
   fetchFortniteData = username => {
     return new Promise((resolve, reject) => {
-      fetch(`http://localhost:8080/api/stats?username=${username}`, {
+      fetch(`http://fortniteexpress-dev.us-west-2.elasticbeanstalk.com/api/stats?username=${username}`, {
         // headers: new Headers({
         //   'username': username
         // }),
@@ -82,7 +82,7 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteStore = () => {
-    fetch('http://localhost:8080/api/store', 
+    fetch('http://fortniteexpress-dev.us-west-2.elasticbeanstalk.com/api/store', 
     {
       // headers: new Headers({
       //   'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
@@ -116,7 +116,7 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteMatchHistory = accountID => {
-    fetch(`http://localhost:8080/api/history?accountID=${accountID}`, {
+    fetch(`http://fortniteexpress-dev.us-west-2.elasticbeanstalk.com/api/history?accountID=${accountID}`, {
       // headers: new Headers({
       //   'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
       // })
