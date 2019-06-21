@@ -17,7 +17,6 @@ import RouterComponent from './Pages/RouterComponent';
 import { createGlobalStyle } from 'styled-components';
 
 
-
 const GlobalStyle = createGlobalStyle`
   body {
     // background-color: ${props => (props.whiteColor ? 'blue' : 'black')}
@@ -43,8 +42,8 @@ class FortniteApi extends Component {
   };
 
   componentDidMount() {
-    this.fetchFortniteStore();
     this.fetchFortniteChallenges();
+    this.fetchFortniteStore();
   }
 
   componentDidCatch(error, info) {
@@ -53,10 +52,7 @@ class FortniteApi extends Component {
 
   fetchFortniteData = username => {
     return new Promise((resolve, reject) => {
-      fetch(`http://fortniteexpress-dev.us-west-2.elasticbeanstalk.com/api/stats?username=${username}`, {
-        // headers: new Headers({
-        //   'username': username
-        // }),
+      fetch(`https://api.unvaulted.co.uk/api/stats?username=${username}`, {
       })
         .then(response => {
           return response.json();
@@ -82,13 +78,8 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteStore = () => {
-    fetch('http://fortniteexpress-dev.us-west-2.elasticbeanstalk.com/api/store', 
-    {
-      // headers: new Headers({
-      //   'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
-      // })
-    }
-    )
+    fetch('https://api.unvaulted.co.uk/api/store', {
+    })
       .then(response => {
         return response.json();
       })
@@ -116,10 +107,7 @@ class FortniteApi extends Component {
   };
 
   fetchFortniteMatchHistory = accountID => {
-    fetch(`http://fortniteexpress-dev.us-west-2.elasticbeanstalk.com/api/history?accountID=${accountID}`, {
-      // headers: new Headers({
-      //   'TRN-Api-Key': 'f92be6be-cb17-43c7-96e5-6a442ab5b65e'
-      // })
+    fetch(`https://api.unvaulted.co.uk/api/history?accountID=${accountID}`, {
     })
       .then(response => {
         return response.json();
