@@ -34,3 +34,5 @@ https://github.com/jcharnley/FortniteExpress
 
 ## Front-End File Structure
 
+<img width="262" alt="Screenshot 2019-06-21 at 11 09 41" src="https://user-images.githubusercontent.com/25176118/59915939-c01f1f80-9415-11e9-955b-eedaf2ead4d7.png">
+
