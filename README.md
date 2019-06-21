@@ -42,7 +42,7 @@ src/componants/fortniteApi  - is App.js level and calls the backend that returns
 
 Package.json - proxy: "https://localhost:8080" is the Express backend port
 
-src/pages - holds all the apps pages which are routed via RouterComonent.js
+src/pages - holds all the apps pages which are routed via RouterComponent.js
 
 Two navigation componants one for the main page and one for src/pages/stats
 
