@@ -13,6 +13,9 @@ const NavContainer = styled.div`
   display: flex;
   height: 4rem;
   box-sizing: border-box;
+  @media (max-width: 748px) {
+   height: 50px;
+  }
 `;
 
 const NavBar = styled.ul`
@@ -32,6 +35,7 @@ const NavBar = styled.ul`
   box-sizing: border-box;
   @media (max-width: 748px) {
     display: none;
+    
   }
 `;
 const NavListItems = styled.li`
@@ -64,11 +68,10 @@ const Username = styled.span`
 const MobileMenu = styled.div`
   margin-left: 1rem;
   margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  @media (min-width: 748px) {
-    display: none;
-  }
+  position: absolute;
+  right: 0;
+  // flex-direction: column;
+ 
 `;
 
 const MobileNavList = styled.div`
@@ -111,44 +114,6 @@ class Nav extends Component {
 
     return (
       <NavContainer>
-        <MobileMenu className="on-mobile">
-          <CheeseburgerMenu
-            isOpen={this.state.menuOpen}
-            closeCallback={this.closeMenu.bind(this)}
-            width={200}
-            backgroundColor={'#73787B'}
-            display={'flex'}
-            flexDirection={'column'}
-          >
-            <MobileNavList className="test">
-              <NavLink exact to="/" activeClassName="active">
-                Home
-              </NavLink>
-              <NavLink to="/lifetime" activeClassName="active">
-                Player stats
-              </NavLink>
-              <NavLink to="/challenges" activeClassName="active">
-                Challanges
-              </NavLink>
-              <NavLink to="/store" activeClassName="active">
-                Daily Store
-              </NavLink>
-            </MobileNavList>
-          </CheeseburgerMenu>
-
-          <HamburgerMenu
-            menuClicked={this.openMenu.bind(this)}
-            isOpen={this.state.menuOpen}
-            width={40}
-            height={35}
-            strokeWidth={3}
-            rotate={0}
-            color="white"
-            marginTop={10}
-            borderRadius={0}
-            animationDuration={0.5}
-          />
-        </MobileMenu>
         <NavBar>
           <NavListItems>
             <NavLink to="/" activeClassName="active">
@@ -171,7 +136,57 @@ class Nav extends Component {
             </NavLink>
           </NavListItems>
         </NavBar>
-        <Username>{user}</Username>
+        {/* <Username>{user}</Username> */}
+        <MobileMenu className="on-mobile" >
+          <div onClick={this.closeMenu.bind(this)}>
+          <CheeseburgerMenu
+            isOpen={this.state.menuOpen}
+            closeCallback={this.closeMenu.bind(this)}
+            width={400}
+            right={true}
+            topOffset={50}
+            backgroundColor={'#73787B'}
+            display={'flex'}
+            flexDirection={'column'}
+          >
+            <MobileNavList className="test">
+            <div style={{right: 0, position: 'relative'}}
+            onClick={this.closeMenu.bind(this)}>X</div>
+              
+       
+              
+              <NavLink exact to="/" activeClassName="active">
+                Home
+              </NavLink>
+              <NavLink to="/lifetime" activeClassName="active">
+                Player stats
+              </NavLink>
+              <NavLink to="/challenges" activeClassName="active">
+                Challanges
+              </NavLink>
+              <NavLink to="/store" activeClassName="active">
+                Daily Store
+              </NavLink>
+            </MobileNavList>
+          </CheeseburgerMenu>
+          </div>
+         
+
+          <HamburgerMenu
+            menuClicked={this.openMenu.bind(this)}
+            // isOpen={this.state.menuOpen}
+            width={20}
+            height={20}
+            strokeWidth={3}
+            rotate={0}
+            color="white"
+            marginTop={10}
+            borderRadius={0}
+            animationDuration={0.5}
+            disableAutoFocus={true}
+          />
+          
+        </MobileMenu>
       </NavContainer>
     );
   }
