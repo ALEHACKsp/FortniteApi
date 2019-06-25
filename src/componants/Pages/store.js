@@ -46,11 +46,12 @@ const Store = ({ store }) => {
       return (
         <StoreCard key={index}>
           <h3>{data.name}</h3>
-          <StoreCardImg src={data.imageUrl} alt="Store images" />
+          <StoreCardImg src={data.imageUrl} alt="(unvaulted) Current Fortnite store image" name="unvaulted" />
           <VBucksCard>
             <img
               src="https://img.icons8.com/color/48/000000/v-bucks.png"
-              alt="something"
+              alt="(unvaulted) Fortnite vBuck image"
+              name="unvaulted"
             />
             <h3>{data.vBucks}</h3>
           </VBucksCard>
