@@ -30,7 +30,8 @@ const Header = ({ user, status }) => {
         Logo
         <HeaderLogo
         // src="https://www.parisgamesweek.com/media/upload/article/content/Fortnite_Black_Logo.png"
-        // alt="fortnite"
+        alt="Unvaulted Logo"
+       name="Unvaulted"
         />
       </Link>
 

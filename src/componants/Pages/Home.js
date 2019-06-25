@@ -41,7 +41,7 @@ const Home = ({ fetchData, location }) => {
 
   return (
     <HomePage>
-      <img alt="" src={backgroundImage} />
+      <img name="unvaulted" alt="Fortnite image from latest season" src={backgroundImage} />
       <InputSearch>
         <h1
           style={{
