@@ -56,11 +56,14 @@ const NavListItems = styled.li`
 
 const Username = styled.span`
   color: green;
+  display: block;
   @media (max-width: 748px) { 
   }
 `;
 
 const MobileMenu = styled.div`
+display: none;
+
   @media (max-width: 748px) {
     display: flex;
     flex: 1;
