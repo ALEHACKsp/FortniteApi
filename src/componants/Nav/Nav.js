@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import CheeseburgerMenu from 'cheeseburger-menu';
 import HamburgerMenu from 'react-hamburger-menu';
 
-// import { Arrow } from "./Navarrows";
+import { Close } from "./Navarrows";
 
 const NavContainer = styled.div`
   background-color: #2a2a2a;
@@ -55,23 +55,19 @@ const NavListItems = styled.li`
 `;
 
 const Username = styled.span`
-  color: white;
-  position: absolute;
-  right: 0;
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding-right: 1rem;
   color: green;
+  @media (max-width: 748px) { 
+  }
 `;
 
 const MobileMenu = styled.div`
-  margin-left: 1rem;
-  margin-top: 1rem;
-  position: absolute;
-  right: 0;
-  // flex-direction: column;
- 
+  @media (max-width: 748px) {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
 `;
 
 const MobileNavList = styled.div`
@@ -79,18 +75,31 @@ const MobileNavList = styled.div`
   flex-direction: column;
   padding: 0.7rem 15px;
   text-decoration: none;
-
+  margin-top: 3.5rem;
   > a {
-    padding: 1rem 0 1rem 0;
+    margin-bottom: 1rem;
     text-decoration: none;
     color: black;
-    border-bottom: 1px solid #ddd;
-    color: white;
+    font-weight: bold;
     &.active {
-      border-right: 10px solid #ffd8ff;
+      color: #ffd8ff;
+      color: blue;
+      font-weight: bold;
     }
   }
 `;
+const CloseMenu = styled.div`
+position: absolute;
+right: 0;
+top: 0;
+ >svg {
+   margin: 0.8rem 0.8rem 0 0;
+  &:hover {
+    fill: #DA4567;
+  }
+ }
+
+`
 
 class Nav extends Component {
   constructor(props) {
@@ -107,6 +116,13 @@ class Nav extends Component {
 
   closeMenu() {
     this.setState({ menuOpen: false });
+  }
+
+  getStyle() {
+    if (this.state.menuOpen === true) {
+      return "#ffd8ff"
+    }
+ 
   }
 
   render() {
@@ -136,25 +152,23 @@ class Nav extends Component {
             </NavLink>
           </NavListItems>
         </NavBar>
-        {/* <Username>{user}</Username> */}
-        <MobileMenu className="on-mobile" >
-          <div onClick={this.closeMenu.bind(this)}>
+        
+        <MobileMenu className="on-mobile">
+        <Username>{user}</Username>
           <CheeseburgerMenu
             isOpen={this.state.menuOpen}
             closeCallback={this.closeMenu.bind(this)}
-            width={400}
+            width={200}
             right={true}
             topOffset={50}
-            backgroundColor={'#73787B'}
+            backgroundColor={'#EAEAEA'}
             display={'flex'}
             flexDirection={'column'}
           >
             <MobileNavList className="test">
-            <div style={{right: 0, position: 'relative'}}
-            onClick={this.closeMenu.bind(this)}>X</div>
-              
-       
-              
+            <CloseMenu onClick={this.closeMenu.bind(this)}>
+              <Close></Close>
+              </CloseMenu>
               <NavLink exact to="/" activeClassName="active">
                 Home
               </NavLink>
@@ -169,21 +183,19 @@ class Nav extends Component {
               </NavLink>
             </MobileNavList>
           </CheeseburgerMenu>
-          </div>
-         
-
+    
           <HamburgerMenu
             menuClicked={this.openMenu.bind(this)}
-            // isOpen={this.state.menuOpen}
-            width={20}
+            color={this.state.menuOpen === false ? "white": this.getStyle()}
+            // isOpen={this.closeMenu.bind(this)}
+            width={25}
             height={20}
+            margin={16}
             strokeWidth={3}
             rotate={0}
-            color="white"
-            marginTop={10}
             borderRadius={0}
             animationDuration={0.5}
-            disableAutoFocus={true}
+            disableAutoFocus={false}
           />
           
         </MobileMenu>
