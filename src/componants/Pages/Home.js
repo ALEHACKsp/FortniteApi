@@ -41,9 +41,13 @@ const Home = ({ fetchData, location }) => {
 
   return (
     <HomePage>
-      <img name="unvaulted" alt="Fortnite image from latest season" src={backgroundImage} />
+      
+      <h1>Unvaulted</h1>
+      <h4>Fortnite stats app for desktop/mobile.  Search your stats, match history, current season challenges and much more!</h4>
+      
+       {/* <img name="unvaulted" alt="Fortnite image from latest season" src={backgroundImage} /> */}
       <InputSearch>
-        <h1
+        <h3
           style={{
             color: 'white',
             fontSize: '3.5rem',
@@ -51,7 +55,7 @@ const Home = ({ fetchData, location }) => {
           }}
         >
           Find user
-        </h1>
+        </h3>
         <form
           onSubmit={e => {
             e.preventDefault(
