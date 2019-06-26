@@ -67,6 +67,7 @@ class FortniteApi extends Component {
             id: accountID
           });
           this.fetchFortniteMatchHistory(accountID);
+          // console.log("this is account id", accountID)
           resolve('Success');
           return accountID;
         })

@@ -3,6 +3,7 @@ import backgroundImage from './fortnite-loading-screen-stratus.jpg';
 import styled from 'styled-components';
 
 const HomePage = styled.div`
+  height: 100vh;
   width: 100%;
   // overflow: hidden;
   // background-size: cover;
@@ -12,19 +13,41 @@ const HomePage = styled.div`
     display: block;
   }
 `;
+const IntroContainer = styled.div`
+text-align: center; 
+padding-top: 60px;
+padding-bottom: 58px;
+
+> h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+> h4 {
+  font-weight: 300;
+  padding: 0 1rem;
+}
+`
 
 const InputSearch = styled.div`
   width: 40%;
-  position: absolute;
-  padding-left: 30px;
-  top: 0;
-  margin-top: 13rem;
+  // position: absolute;
+  // padding-left: 30px;
+  // top: 0;
+  // margin-top: 13rem;
+  > h3 {
+    color: black;
+    font-size: 1rem;
+    margin-bottom: 0;
+    font-weight: 300;
+    text-align: center;
+  }
   @media (max-width: 748px) {
-    width: 70%;
-    bottom: 0;
-    margin-bottom: 16rem;
+    width: 100%;
+    // bottom: 0;
+    margin-bottom: 60px;
   }
 `;
+
 
 const Home = ({ fetchData, location }) => {
   const [value, setvalue] = useState('');
@@ -41,17 +64,23 @@ const Home = ({ fetchData, location }) => {
 
   return (
     <HomePage>
-      <img name="unvaulted" alt="Fortnite image from latest season" src={backgroundImage} />
+      <IntroContainer>
+      <h1>Unvaulted</h1>
+      <h4>Fortnite stats app for desktop/mobile.  Search your stats, match history, current season challenges and much more!</h4>
+      </IntroContainer>
+ 
+      
+       {/* <img name="unvaulted" alt="Fortnite image from latest season" src={backgroundImage} /> */}
       <InputSearch>
-        <h1
+        <h3
           style={{
-            color: 'white',
-            fontSize: '3.5rem',
-            fontWeight: '900'
+            color: 'black',
+            fontSize: '1rem',
+            fontWeight: '300'
           }}
         >
           Find user
-        </h1>
+        </h3>
         <form
           onSubmit={e => {
             e.preventDefault(
@@ -72,7 +101,7 @@ const Home = ({ fetchData, location }) => {
               height: '2rem',
               // border: '1px solid red',
               overflow: 'hidden',
-              width: '100%'
+              width: '100%',
             }}
           >
             <input
@@ -83,7 +112,8 @@ const Home = ({ fetchData, location }) => {
                 width: '80%',
                 height: '100%',
                 border: '0',
-                padding: '0'
+                padding: '0',
+                backgroundColor: 'lightgrey'
               }}
               onChange={onChange}
             />
@@ -119,6 +149,20 @@ const Home = ({ fetchData, location }) => {
           ''
         )}
       </InputSearch>
+      <div>
+      This will be the News section (another api call)
+      <ol>
+        <li>
+          news
+        </li>
+        <li>
+          news
+          </li>
+          <li>
+          news
+          </li>
+      </ol>
+      </div>
     </HomePage>
   );
 };
