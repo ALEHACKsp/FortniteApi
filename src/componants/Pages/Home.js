@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import backgroundImage from './fortnite-loading-screen-stratus.jpg';
+import homePageVideo from './FNBR_Season9_Cine_compressed.mp4'
 import styled from 'styled-components';
 
+import News from './in_game_news'
+
 const HomePage = styled.div`
-  height: 100vh;
+  // height: 100vh;
   width: 100%;
   // overflow: hidden;
   // background-size: cover;
@@ -15,8 +18,8 @@ const HomePage = styled.div`
 `;
 const IntroContainer = styled.div`
 text-align: center; 
-padding-top: 60px;
-padding-bottom: 58px;
+// padding-top: 60px;
+// padding-bottom: 58px;
 
 > h1 {
   font-size: 24px;
@@ -26,6 +29,10 @@ padding-bottom: 58px;
   font-weight: 300;
   padding: 0 1rem;
 }
+// @media (max-width: 748px) {
+//   height: "40vh", 
+//   width: "100vw"
+// }
 `
 
 const InputSearch = styled.div`
@@ -49,7 +56,10 @@ const InputSearch = styled.div`
 `;
 
 
-const Home = ({ fetchData, location }) => {
+
+
+const Home = ({ fetchData, location, news }) => {
+  
   const [value, setvalue] = useState('');
 
   const [error, setError] = useState('');
@@ -62,13 +72,18 @@ const Home = ({ fetchData, location }) => {
     setError(error);
   };
 
+
   return (
     <HomePage>
       <IntroContainer>
       <h1>Unvaulted</h1>
+      <video loop autoPlay style={{width: "100vw", height: "240"}}>
+    <source src={homePageVideo} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+      {/* <iframe allow="autoplay" allowfullscreen="false" src={homePageVideo}></iframe> */}
       <h4>Fortnite stats app for desktop/mobile.  Search your stats, match history, current season challenges and much more!</h4>
       </IntroContainer>
- 
+      
       
        {/* <img name="unvaulted" alt="Fortnite image from latest season" src={backgroundImage} /> */}
       <InputSearch>
@@ -149,20 +164,8 @@ const Home = ({ fetchData, location }) => {
           ''
         )}
       </InputSearch>
-      <div>
-      This will be the News section (another api call)
-      <ol>
-        <li>
-          news
-        </li>
-        <li>
-          news
-          </li>
-          <li>
-          news
-          </li>
-      </ol>
-      </div>
+      <h3>Latest News</h3>
+      <News news={news} location={location}/>
     </HomePage>
   );
 };
