@@ -184,13 +184,16 @@ class Nav extends Component {
               <NavLink to="/store" activeClassName="active">
                 Daily Store
               </NavLink>
+              <NavLink to="/news" activeClassName="active">
+                News
+              </NavLink>
             </MobileNavList>
           </CheeseburgerMenu>
     
           <HamburgerMenu
             menuClicked={this.openMenu.bind(this)}
             color={this.state.menuOpen === false ? "white": this.getStyle()}
-            // isOpen={this.closeMenu.bind(this)}
+            isOpen={false}
             width={25}
             height={20}
             margin={16}

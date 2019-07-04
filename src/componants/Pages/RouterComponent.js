@@ -11,6 +11,7 @@ import Lifetime from './Stats/Lifetime';
 import History from './Stats/History';
 import Challenges from './Challenges';
 import Store from './store';
+import News from './in_game_news';
 
 const RouteStyle = styled.div`
   width: 100vw;
@@ -34,7 +35,8 @@ const RouterComponent = ({
   history,
   challenges,
   store,
-  id
+  id,
+  news
 }) => {
   return (
     <RouteStyle>
@@ -43,7 +45,7 @@ const RouterComponent = ({
           exact
           path="/"
           render={location => (
-            <Home fetchData={fetchData} location={location} />
+            <Home fetchData={fetchData} location={location} news={news} />
           )}
         />
         <Route
@@ -65,6 +67,13 @@ const RouterComponent = ({
         <Route
           path="/challenges"
           render={() => <Challenges challenges={challenges} />}
+        />
+        <Route path="/store" render={() => <Store store={store} />} />
+        <Route
+          path="/news"
+          render={location => (
+            <News news={news} location={location}/>
+          )}
         />
         <Route path="/store" render={() => <Store store={store} />} />
       </Switch>

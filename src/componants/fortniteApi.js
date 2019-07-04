@@ -38,12 +38,14 @@ class FortniteApi extends Component {
     status: null,
     challenges: null,
     history: null,
-    id: null
+    id: null,
+    news: null
   };
 
   componentDidMount() {
     this.fetchFortniteChallenges();
     this.fetchFortniteStore();
+    this.fetchFortniteIngameNews();
   }
 
   componentDidCatch(error, info) {
@@ -106,7 +108,24 @@ class FortniteApi extends Component {
         this.setState({ challenges: weeks });
       });
   };
-
+  fetchFortniteIngameNews = () => {
+    fetch(
+      'https://fortnite-api.theapinetwork.com/br_motd/get',
+      {
+        headers: new Headers({
+          Authorization: 'a640bb28c19e78924fc782dadce360f3'
+        })
+      }
+    )
+      .then(response => {
+        return response.json();
+      })
+      .then(myJson => {
+        const newsObj = myJson;
+        this.setState({ news: newsObj });
+      });
+  };
+  
   fetchFortniteMatchHistory = accountID => {
     fetch(`https://api.unvaulted.co.uk/api/history?accountID=${accountID}`, {
     })
@@ -123,10 +142,6 @@ class FortniteApi extends Component {
     return (
       <Wrapper>
         <GlobalStyle whiteColor />
-        {/* <Header
-          user={this.state.name}
-          status={this.state.status}
-        /> */}
         <Nav user={this.state.name} />
         <RouterComponent
           fetchData={this.fetchFortniteData}
@@ -135,6 +150,7 @@ class FortniteApi extends Component {
           challenges={this.state.challenges}
           store={this.state.store}
           id={this.state.id}
+          news={this.state.news}
         />
         <Footer />
       </Wrapper>
