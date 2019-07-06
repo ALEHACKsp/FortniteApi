@@ -9,6 +9,9 @@ const Wrapper = styled.div`
   overflow: hidden;
   border-left: 1px solid lightgrey;
   // overflow-y:hidden;
+  @media (max-width: 748px) {
+    margin: 2.5rem 0;
+  }
 `;
 
 const TableWrap = styled.div`
