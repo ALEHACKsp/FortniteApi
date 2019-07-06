@@ -8,6 +8,7 @@ import Nav from './Nav/Nav';
 import Footer from './Footer/Footer';
 
 // Import routing pages
+import { withRouter } from "react-router";
 
 import RouterComponent from './Pages/RouterComponent';
 
@@ -41,11 +42,12 @@ class FortniteApi extends Component {
     id: null,
     news: null
   };
-
+  
   componentDidMount() {
     this.fetchFortniteChallenges();
     this.fetchFortniteStore();
     this.fetchFortniteIngameNews();
+
   }
 
   componentDidCatch(error, info) {
@@ -60,6 +62,8 @@ class FortniteApi extends Component {
           return response.json();
         })
         .then(myJson => {
+          //cuur_p2. solo, curr_p9 squad,  curren_p10 duo, p2 lifetime solo, p9 lifetime squad, p10 lifetime duo
+          console.log("stats data", myJson)
           const epicName = myJson.epicUserHandle;
           const lifeTimeStats = myJson.lifeTimeStats;
           const accountID = myJson.recentMatches[0].accountId;
@@ -142,7 +146,7 @@ class FortniteApi extends Component {
     return (
       <Wrapper>
         <GlobalStyle whiteColor />
-        <Nav user={this.state.name} />
+        <Nav user={this.state.name} fetchData={this.fetchFortniteData} location={this.props.history} />
         <RouterComponent
           fetchData={this.fetchFortniteData}
           stats={this.state.stats}
@@ -158,4 +162,4 @@ class FortniteApi extends Component {
   }
 }
 
-export default FortniteApi;
+export default withRouter(FortniteApi);

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';s
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -27,8 +27,9 @@ const News = ({ news, location }) => {
   //     setvalue(input);
   // };
 
+  //display short version of latest news on homepage, else display all.
 const displayNews = location.location.pathname === '/' ? news && news.data.slice(0,3).map((newsObj, key) => {
-    const { title, body, image, time, meta} = newsObj;
+    const { title, body, image } = newsObj;
     return ( 
       <div key={key}>
         <Card>
@@ -76,7 +77,7 @@ const displayNews = location.location.pathname === '/' ? news && news.data.slice
         </div>
     )
 }) : news && news.data.map((newsObj, key) => {
-      const { title, body, image, time, meta} = newsObj;
+      const { title, body, image} = newsObj;
       return ( 
         <div key={key}>
           <Card>
