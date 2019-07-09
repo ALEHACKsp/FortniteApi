@@ -7,8 +7,9 @@ import styled from 'styled-components';
 //import routes
 
 import Home from './Home';
-import Lifetime from './Stats/Lifetime';
-import History from './Stats/History';
+import Lifetime from './stats/Lifetime';
+import History from './stats/History';
+import CurrentSeason from './stats/currentSeason'
 import Challenges from './Challenges';
 import Store from './store';
 import News from './in_game_news';
@@ -36,7 +37,8 @@ const RouterComponent = ({
   challenges,
   store,
   id,
-  news
+  news,
+  season
 }) => {
   return (
     <RouteStyle>
@@ -62,6 +64,12 @@ const RouterComponent = ({
           path="/history"
           render={() =>
             id !== null ? <History history={history} /> : <Redirect to="/" />
+          }
+        />
+         <Route
+          path="/current"
+          render={() =>
+            id !== null ? <CurrentSeason season={season} /> : <Redirect to="/" />
           }
         />
         <Route

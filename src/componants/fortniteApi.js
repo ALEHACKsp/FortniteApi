@@ -40,7 +40,8 @@ class FortniteApi extends Component {
     challenges: null,
     history: null,
     id: null,
-    news: null
+    news: null,
+    seasonStats: null
   };
   
   componentDidMount() {
@@ -63,13 +64,15 @@ class FortniteApi extends Component {
         })
         .then(myJson => {
           //cuur_p2. solo, curr_p9 squad,  curren_p10 duo, p2 lifetime solo, p9 lifetime squad, p10 lifetime duo
-          console.log("stats data", myJson)
+          // console.log("stats data", myJson)
           const epicName = myJson.epicUserHandle;
           const lifeTimeStats = myJson.lifeTimeStats;
+          const currnentSeasonStats = myJson.stats;
           const accountID = myJson.recentMatches[0].accountId;
           this.setState({
             name: epicName,
             stats: lifeTimeStats,
+            seasonStats: currnentSeasonStats,
             id: accountID
           });
           this.fetchFortniteMatchHistory(accountID);
@@ -155,6 +158,7 @@ class FortniteApi extends Component {
           store={this.state.store}
           id={this.state.id}
           news={this.state.news}
+          season={this.state.seasonStats}
         />
         <Footer />
       </Wrapper>
