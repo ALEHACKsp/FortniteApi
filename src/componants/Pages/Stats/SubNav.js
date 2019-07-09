@@ -28,13 +28,13 @@ const SubNavStyle = styled.ul`
       color: black;
       transform: skew(-25deg);
     }
-
-    &:hover {
-      background-color: black;
-      >  {
-        color: white;
-      }
-    }
+    // black on hover
+    // &:hover {
+    //   background-color: black;
+    //   >  {
+    //     color: white;
+    //   }
+    // }
   }
 `;
 
@@ -46,10 +46,9 @@ const SubNavigation = () => (
     <NavLink to="/history" activeClassName="active">
       <h4>Match History</h4>
     </NavLink>
-    <NavLink to="/latest" activeClassName="active">
+    <NavLink to="/current" activeClassName="active">
       <h4>Current</h4>
     </NavLink>
-    {/* <li><h3>Match History</h3></li> */}
   </SubNavStyle>
 );
 
