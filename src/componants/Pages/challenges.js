@@ -2,10 +2,13 @@ import React from 'react';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import styled from 'styled-components';
 
+import { Hint } from '../Nav/Navarrows'
+
 const Wrapper = styled.div`
-  margin: 1.25rem;
+  // margin: 1.25rem;
 `;
 
 const TitleContainer = styled.div`
@@ -25,24 +28,57 @@ const TitleText = styled.p`
   }
 `;
 const Text = styled.div`
-  margin-left: 20px;
+  // margin-left: 20px;
 `;
 const DetailContainer = styled.div`
   width: 100%;
-  background-color: lightgrey;
+  // background-color: lightgrey;
 
-  &.MuiExpansionPanelDetails-root-45 {
-    // border: 1px solid grey;
+  // &.MuiExpansionPanelDetails-root-45 {
+  //   // border: 1px solid grey;
+  // }
+`;
+
+// const WeeksList = styled.tr`
+//   // border: 1px solid blue;
+//   display: flex;
+//   padding: 0;
+//   margin: 0;
+//   justify-content: space-evenly;
+// `;
+
+const Table = styled.table`
+table-layout: fixed;
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 0.25rem;
+// border-top: 1px solid purple;
+// height: 3rem;
+@media (max-width: 748px) {
+  .col1 {
+    width 75%;
   }
-`;
+  .col2 {
+    width 25%;
+    text-align: center;
+  }
+  .col3 {
+    width 13%;
+  }
+}
+`
+const TableHeader = styled.th`
+text-align: left;
+font-size: 0.95rem;
+padding-bottom: 0.5rem;
+padding-top: 0.75rem;
+`
 
-const WeeksList = styled.ul`
-  // border: 1px solid blue;
-  display: flex;
-  font-size: 1rem;
-  font-weight: 700;
-  font-family: 'Open Sans', arial, sans-serif;
-`;
+const TableData = styled.td`
+padding: 0.75rem 0;
+// border: 1px solid darkblue;
+background-color: lightgrey;
+`
 const Challenges = ({ challenges }) => {
   const seasonInfo =
     challenges &&
@@ -62,7 +98,6 @@ const Challenges = ({ challenges }) => {
   const weeklyChallenges =
     challenges &&
     Object.entries(challenges.challenges).map((data, key) => {
-      // console.log('data', data[1].value);
       if (data[1].length === 0) {
         return null;
       }
@@ -71,35 +106,71 @@ const Challenges = ({ challenges }) => {
           <ExpansionPanel>
             <ExpansionPanelSummary
               style={{
-                fontSize: '1.2rem',
-                fontWeight: '700',
-                fontFamily: 'arial, sans-serif',
-                linkHeight: '44px',
+                // fontSize: '1rem',
+                // fontWeight: '500',
+                // linkHeight: '20px',
                 textTransform: 'uppercase',
                 flex: 0,
-                border: '3px solid lightgrey',
-                borderBottom: 'none',
-                padding: '3px 3px'
+                // border: '3px solid lightgrey',
+                // borderBottom: 'none',
               }}
+              expandIcon={<ExpandMoreIcon />}
             >
               <Text>{data[1].value}</Text>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails
               style={{
-                border: '3px solid lightgrey',
+                // border: '2px solid lightgrey',
                 padding: '0'
               }}
             >
               <DetailContainer>
-                {data[1].entries.map((list, count, key) => {
-                  return (
-                    <div key={count}>
-                      <WeeksList>
-                        {count + 1}. {list.challenge}
-                        {/* Difficulty:{list.difficulty} */}
-                      </WeeksList>
-                    </div>
-                  );
+                {data[1].entries.map((list, key) => {
+
+                  const getStyle = () => {
+                 if (list.difficulty === 'normal') {
+                   return {
+                    color: 'orange'
+                   } 
+                  }
+                   if (list.difficulty === 'hard') {
+                    return {
+                       color: 'red'
+                     } 
+                 }
+                  }
+                  if (key === 0) {
+                    return (
+                      <Table key={key}>
+                      <thead>
+                          <tr>
+                          <TableHeader className="col1">Challenge</TableHeader>
+                          <TableHeader className="col2">Difficulty</TableHeader> 
+                          {/* <TableHeader className="col3">Hint</TableHeader> */}
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                          <TableData className="col1">{list.challenge}</TableData>
+                          <TableData className="col2" style={getStyle()}>{list.difficulty}</TableData> 
+                          {/* <TableData className="col3"><Hint/></TableData> */}
+                          </tr>
+                      </tbody>
+                  </Table>
+                    );
+                  } else {
+                    return (
+                      <Table key={key}>
+                      <tbody>
+                          <tr>
+                          <TableData className="col1">{list.challenge}</TableData>
+                          <TableData className="col2" style={getStyle()}>{list.difficulty}</TableData> 
+                          {/* <TableData className="col3"><Hint/></TableData> */}
+                          </tr>
+                      </tbody>
+                  </Table>
+                    );
+                  }
                 })}
               </DetailContainer>
             </ExpansionPanelDetails>

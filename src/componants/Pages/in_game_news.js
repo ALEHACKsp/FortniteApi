@@ -79,7 +79,9 @@ const displayNews = location.location.pathname === '/' ? news && news.data.slice
 }) : news && news.data.map((newsObj, key) => {
       const { title, body, image} = newsObj;
       return ( 
+       
         <div key={key}>
+           <h3>Lastest in-game news</h3>
           <Card>
        <CardActionArea>
          <CardMedia

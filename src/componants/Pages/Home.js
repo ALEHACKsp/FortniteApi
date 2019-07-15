@@ -4,6 +4,7 @@ import homePageVideo from './FNBR_Season9_Cine_compressed.mp4'
 import styled from 'styled-components';
 
 import News from './in_game_news'
+import Store from './store'
 
 const HomePage = styled.div`
   // height: 100vh;
@@ -58,7 +59,7 @@ const InputSearch = styled.div`
 
 
 
-const Home = ({ fetchData, location, news }) => {
+const Home = ({ fetchData, location, news, store }) => {
   
   const [value, setvalue] = useState('');
 
@@ -164,6 +165,8 @@ const Home = ({ fetchData, location, news }) => {
           ''
         )}
       </InputSearch>
+      <h3>Daily Store</h3>
+      <Store store={store}/>
       <h3>Latest News</h3>
       <News news={news} location={location}/>
     </HomePage>

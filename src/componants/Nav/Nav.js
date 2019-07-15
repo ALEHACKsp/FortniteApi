@@ -204,11 +204,11 @@ class Nav extends Component {
               Challanges
             </NavLink>
           </NavListItems>
-          <NavListItems>
+          {/* <NavListItems>
             <NavLink to="/store" activeClassName="active">
               Store
             </NavLink>
-          </NavListItems>
+          </NavListItems> */}
         </NavBar>
         
         <MobileMenu className="on-mobile">
@@ -325,8 +325,8 @@ class Nav extends Component {
               <NavLink to="/challenges" activeClassName="active">
                 Challanges
               </NavLink>
-              <NavLink to="/store" activeClassName="active">
-                Daily Store
+              <NavLink to="/gameSettings" activeClassName="active">
+                Game Settings
               </NavLink>
               <NavLink to="/news" activeClassName="active">
                 News
