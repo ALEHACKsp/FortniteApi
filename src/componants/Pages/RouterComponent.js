@@ -11,7 +11,7 @@ import Lifetime from './stats/Lifetime';
 import History from './stats/History';
 import CurrentSeason from './stats/currentSeason'
 import Challenges from './Challenges';
-import Store from './store';
+import GameSettings from './gameSettings';
 import News from './in_game_news';
 
 const RouteStyle = styled.div`
@@ -47,7 +47,7 @@ const RouterComponent = ({
           exact
           path="/"
           render={location => (
-            <Home fetchData={fetchData} location={location} news={news} />
+            <Home fetchData={fetchData} location={location} news={news} store={store} />
           )}
         />
         <Route
@@ -76,14 +76,13 @@ const RouterComponent = ({
           path="/challenges"
           render={() => <Challenges challenges={challenges} />}
         />
-        <Route path="/store" render={() => <Store store={store} />} />
         <Route
           path="/news"
           render={location => (
             <News news={news} location={location}/>
           )}
         />
-        <Route path="/store" render={() => <Store store={store} />} />
+        <Route path="/gameSettings" render={() => <GameSettings />} />
       </Switch>
     </RouteStyle>
   );

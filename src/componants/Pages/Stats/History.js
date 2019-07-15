@@ -40,7 +40,7 @@ const Table = styled.table`
 const TableRow = styled.tr`
   font-family: BurbankBigCondensed-black;
   color: white;
-  font-size: 1.5rem;
+  // font-size: 1.5rem;
   border-bottom: 20px solid #e9edf1;
   opacity: 0.7;
 
@@ -80,20 +80,42 @@ const History = ({ history }) => {
           return <span style={{ color: 'yellow' }}>Top 25</span>;
         }
       };
+
+      const gameMode = () => {
+        const { playlist } = data;
+        if (playlist === "p2") {
+          return (
+            <p>Solo</p>
+          )
+        }
+        if (playlist === "p9") {
+          return (
+            <p>Duo</p>
+          )
+        }
+        if (playlist === "p10") {
+          return (
+            <p>Squad</p>
+          )
+        }
+      }
       if (key < 10) {
         return (
           <TableRow className="firstTable" key={key}>
-            <td>{key + 1}.</td>
+            <td>{gameMode() ? gameMode(): 'N/A'}</td>
+            <td>Matches: {data.matches}</td>
             <td>{data.dateCollected.split('T')[0]}</td>
             <td>Kills: {data.kills}</td>
             <td>{topKeys() ? topKeys() : 'N/A'}</td>
           </TableRow>
         );
       }
+      // playlist
       if (key > 9) {
         return (
           <TableRow className="secondTable" key={key}>
-            <td>{key + 1}.</td>
+            <td>{gameMode() ? gameMode(): 'N/A'}</td>
+            <td>Matches: {data.matches}</td>
             <td>{data.dateCollected.split('T')[0]}</td>
             <td>Kills: {data.kills}</td>
             <td>{topKeys() ? topKeys() : 'N/A'}</td>
