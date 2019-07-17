@@ -325,9 +325,9 @@ class Nav extends Component {
               <NavLink to="/challenges" activeClassName="active">
                 Challanges
               </NavLink>
-              <NavLink to="/gameSettings" activeClassName="active">
+              {/* <NavLink to="/gameSettings" activeClassName="active">
                 Game Settings
-              </NavLink>
+              </NavLink> */}
               <NavLink to="/news" activeClassName="active">
                 News
               </NavLink>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import backgroundImage from './fortnite-loading-screen-stratus.jpg';
+// import backgroundImage from './fortnite-loading-screen-stratus.jpg';
 import homePageVideo from './FNBR_Season9_Cine_compressed.mp4'
 import styled from 'styled-components';
 
@@ -77,7 +77,7 @@ const Home = ({ fetchData, location, news, store }) => {
   return (
     <HomePage>
       <IntroContainer>
-      <h1>Unvaulted</h1>
+      <h1><b>Unvaulted</b></h1>
       <video loop autoPlay style={{width: "100vw", height: "240"}}>
     <source src={homePageVideo} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
