@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 const FooterContainer = styled.div`
 height: 20vh;
@@ -30,7 +30,8 @@ font-size: 1.25rem;
 }
 `
 
-const Footer = ({}) => {
+const Footer = (
+) => {
   return <FooterContainer>
   {/* <h1>adsads</h1> */}
   <FooterNav>

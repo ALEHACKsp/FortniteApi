@@ -59,7 +59,7 @@ const History = ({ history }) => {
   const tableResult =
     history &&
     history.map((data, key) => {
-      const dateFormat = () => {
+      // const dateFormat = () => {
         //     'TODO',
         //     data.dateCollected.split('T')[0].split('-')[0],
         //     data.dateCollected.split('T')[0].split('-')[1],
@@ -67,7 +67,7 @@ const History = ({ history }) => {
         // );
         // const year = data.dateCollected.split('T')[0].split('-')[0];
         // var day = moment(data.dateCollected._d[1]);
-      };
+      // };
       const topKeys = () => {
         const { top1, top5, top10, top25 } = data;
         if (top1 > 0) {
@@ -122,6 +122,7 @@ const History = ({ history }) => {
           </TableRow>
         );
       }
+      return null;
     });
 
   return (

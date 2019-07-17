@@ -81,7 +81,7 @@ const KillsSection = styled(ScoresSection)`
 //   clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 97%);
 // `;
 
-const PlacementSectionText = styled.span`
+// const PlacementSectionText = styled.span`
 // // font-size: 2.4rem
 // padding-left: 4rem;
 // @media (max-width: 748px) {
@@ -90,7 +90,7 @@ const PlacementSectionText = styled.span`
 // &:first-child {
 
 // }
-`;
+// `;
 
 // const StatsContainer = styled.div`
 //   display: flex;

@@ -5,7 +5,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import styled from 'styled-components';
 
-import { Hint } from '../Nav/Navarrows'
+// import { Hint } from '../Nav/Navarrows'
 
 const Wrapper = styled.div`
   // margin: 1.25rem;
@@ -93,6 +93,7 @@ const Challenges = ({ challenges }) => {
           <TitleText key={key}> {data + ': ' + challenges[data]}</TitleText>
         );
       }
+      return null;
     });
 
   const weeklyChallenges =
