@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import FortniteApi from './componants/fortniteApi';
 
+
 ReactDOM.render(
   <BrowserRouter>
     <FortniteApi />

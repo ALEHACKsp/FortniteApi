@@ -15,17 +15,18 @@ import RouterComponent from './Pages/RouterComponent';
 // Import Error pages
 
 // import NotFound from './Error/NotFound';
-import { createGlobalStyle } from 'styled-components';
+// import { createGlobalStyle } from 'styled-components';
 
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    // background-color: ${props => (props.whiteColor ? 'blue' : 'black')}
-    // overflow-y: 1;
-    // overflow-y:hidden;
-    font-size: 16px;
-  }
-`;
+// const GlobalStyle = createGlobalStyle`
+//   body {
+//     // background-color: ${props => (props.whiteColor ? 'blue' : 'black')}
+//     // overflow-y: 1;
+//     // overflow-y:hidden;
+//     font-size: 16px;
+//     margin: 0 10rem;
+//   }
+// `;
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -148,7 +149,6 @@ class FortniteApi extends Component {
   render() {
     return (
       <Wrapper>
-        <GlobalStyle whiteColor />
         <Nav user={this.state.name} fetchData={this.fetchFortniteData} location={this.props.history} />
         <RouterComponent
           fetchData={this.fetchFortniteData}

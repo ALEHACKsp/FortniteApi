@@ -15,7 +15,7 @@ import GameSettings from './gameSettings';
 import News from './in_game_news';
 
 const RouteStyle = styled.div`
-  width: 100vw;
+  width: 100%;
 `;
 
 // export const ProtectedRoute = ({ component: Component, id, ...rest }) => (
