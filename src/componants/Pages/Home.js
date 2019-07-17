@@ -37,7 +37,8 @@ text-align: center;
 `
 
 const InputSearch = styled.div`
-  width: 40%;
+  width: 50%;
+  margin: 0 auto;
   // position: absolute;
   // padding-left: 30px;
   // top: 0;
@@ -78,7 +79,7 @@ const Home = ({ fetchData, location, news, store }) => {
     <HomePage>
       <IntroContainer>
       <h1><b>Unvaulted</b></h1>
-      <video loop autoPlay style={{width: "100vw", height: "240"}}>
+      <video loop autoPlay style={{width: "100%", height: "240"}}>
     <source src={homePageVideo} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
       {/* <iframe allow="autoplay" allowfullscreen="false" src={homePageVideo}></iframe> */}

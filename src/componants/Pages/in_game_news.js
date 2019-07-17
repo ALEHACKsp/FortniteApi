@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import styled from 'styled-components';s
+import styled from 'styled-components';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -18,6 +18,25 @@ import {
 } from 'react-share';
 
 
+const CardContainer = styled.div`
+width: 30%;
+  @media (max-width: 748px) {
+    width: 100%;
+  }
+`;
+
+const NewsSection = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding-bottom: 2.5rem;
+@media (max-width: 748px) {
+  flex-direction: column;
+}
+`
+
+
+
 
 const News = ({ news, location }) => {
 
@@ -31,13 +50,12 @@ const News = ({ news, location }) => {
 const displayNews = location.location.pathname === '/' ? news && news.data.slice(0,3).map((newsObj, key) => {
     const { title, body, image } = newsObj;
     return ( 
-      <div key={key}>
+      <CardContainer key={key}>
         <Card>
      <CardActionArea>
        <CardMedia
          component="img"
          alt={title}
-         height="140"
          image={image}
          title={title}
        />
@@ -74,13 +92,12 @@ const displayNews = location.location.pathname === '/' ? news && news.data.slice
              </TwitterShareButton>
      </CardActions>
    </Card>
-        </div>
+        </CardContainer>
     )
 }) : news && news.data.map((newsObj, key) => {
       const { title, body, image} = newsObj;
       return ( 
-       
-        <div key={key}>
+        <CardContainer key={key}>
            <h3>Lastest in-game news</h3>
           <Card>
        <CardActionArea>
@@ -124,13 +141,13 @@ const displayNews = location.location.pathname === '/' ? news && news.data.slice
                </TwitterShareButton>
        </CardActions>
      </Card>
-          </div>
+          </CardContainer>
       )
   })
     return (
-       <div>
+       <NewsSection>
            {displayNews}
-       </div>
+       </NewsSection>
     );
   };
   

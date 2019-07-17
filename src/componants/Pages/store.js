@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Vbucks from './v-bucks.png'
 
 const StoreCard = styled.div`
-  // display: flex;
-  // flex-wrap: wrap;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  justify-content: center;
+ align-items: scenter;
   background-color: #e9edf1;
   // width: 10%;
   // border-radius: 0.8rem;
@@ -27,6 +27,8 @@ const StoreCardImg = styled.img`
 const StoreWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  // justify-content: space-between;
+
   // margin: 1.25rem;
   // padding-top: 2rem;
   // justify-content: space-between;
