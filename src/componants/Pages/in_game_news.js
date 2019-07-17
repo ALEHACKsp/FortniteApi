@@ -34,10 +34,6 @@ padding-bottom: 2.5rem;
   flex-direction: column;
 }
 `
-
-
-
-
 const News = ({ news, location }) => {
 
   // const [value, setvalue] = useState(false);
