@@ -43,6 +43,13 @@ const RouterComponent = ({
   return (
     <RouteStyle>
       <Switch>
+      <Route
+          exact
+          path="/"
+          render={location => (
+            <Home fetchData={fetchData} location={location} news={news} store={store} />
+          )}
+        />
         <Route
           exact
           path="/home"
@@ -69,7 +76,7 @@ const RouterComponent = ({
          <Route
           path="/current"
           render={() =>
-            id !== null ? <CurrentSeason season={season} /> : <Redirect to="/home" />
+            id !== null ? <CurrentSeason season={season} /> : <Redirect to="/hom" />
           }
         />
         <Route

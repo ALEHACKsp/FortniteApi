@@ -45,7 +45,7 @@ const News = ({ news, location }) => {
   // };
 
   //display short version of latest news on homepage, else display all.
-const displayNews = location.location.pathname === '/home' ? news && news.data.slice(0,3).map((newsObj, key) => {
+const displayNews = location.location.pathname === '/home' || location.location.pathname === '/' ? news && news.data.slice(0,3).map((newsObj, key) => {
     const { title, body, image } = newsObj;
     return ( 
       <CardContainer key={key}>
