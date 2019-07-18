@@ -26,7 +26,7 @@ const HeaderLogo = styled.img`
 const Header = ({ user, status }) => {
   return (
     <HeaderSection>
-      <Link to="/">
+      <Link to="/home">
         Logo
         <HeaderLogo
         // src="https://www.parisgamesweek.com/media/upload/article/content/Fortnite_Black_Logo.png"

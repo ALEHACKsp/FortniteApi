@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // const moment = require('moment');
 
 const Wrapper = styled.div`
-  margin: 2.5rem 1.25rem
+  margin: 2.5rem 0;
   overflow: hidden;
   border-left: 1px solid lightgrey;
   // overflow-y:hidden;

@@ -25,10 +25,14 @@ body {
   height: auto;
 }
 
-:root .MuiCardContent-root-37 {
+/* :root .MuiCardContent-root-37 {
   min-height: 7rem;
+  background-color: yellow;
 }
 
+:root .jbJpys > h1  {
+  background-color: yellow;
+} */
 
 
 @font-face {

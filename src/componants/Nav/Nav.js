@@ -24,38 +24,38 @@ const NavBar = styled.ul`
   margin: 0;
   list-style: none;
   line-height: 44px;
-  font-size: 14px;
   font-weight: 700;
   font-family: 'Open Sans', arial, sans-serif;
   text-transform: uppercase;
   align-items: center;
   justify-content: space-around;
   width: 80%;
+  margin: 0 auto;
   text-decoration: none;
-  box-sizing: border-box;
   @media (max-width: 748px) {
     display: none;
-    
   }
 `;
-const NavListItems = styled.li`
-  &:hover {
-    border-bottom: 5px solid #ffd8ff;
-    box-sizing: border-box;
+const NavListItems = styled.div`
+> a {
+  text-decoration: none;
+  color: white;
+  box-sizing: border-box;
+  &.active {
+    color: #ffd8ff;
+    font-weight: bold;
   }
-
-  &:hover,
-  &.active,
-  a:visited,
-  a:link {
-    text-decoration: none;
-    color: white;
-    box-sizing: border-box;
+}
+  &:hover
+      {
+      border-bottom: 1.5px solid #ffd8ff
   }
+ 
 `;
 
 const Username = styled.span`
-  color: green;
+  color: lightgreen;
+  font-weight: 900;
   display: block;
   @media (max-width: 748px) { 
   }
@@ -190,7 +190,7 @@ class Nav extends Component {
       <NavContainer>
         <NavBar>
           <NavListItems>
-            <NavLink to="/" activeClassName="active">
+            <NavLink to="/home" activeClassName="active">
               Home
             </NavLink>
           </NavListItems>
@@ -204,11 +204,12 @@ class Nav extends Component {
               Challanges
             </NavLink>
           </NavListItems>
-          {/* <NavListItems>
-            <NavLink to="/store" activeClassName="active">
-              Store
+          <NavListItems>
+            <NavLink to="/news" activeClassName="active">
+              News
             </NavLink>
-          </NavListItems> */}
+          </NavListItems>
+          <Username>{user}</Username>
         </NavBar>
         
         <MobileMenu className="on-mobile">
@@ -271,7 +272,7 @@ class Nav extends Component {
             <input
               type="text"
               value={this.state.value || ''}
-              placeholder=" 'Ninja' "
+              placeholder=" tfue "
               style={{
                 width: '80%',
                 height: '100%',
@@ -316,7 +317,7 @@ class Nav extends Component {
               </NavInput>
             
            
-              <NavLink exact to="/" activeClassName="active">
+              <NavLink exact to="/home" activeClassName="active">
                 Home
               </NavLink>
               <NavLink to="/lifetime" activeClassName="active">
