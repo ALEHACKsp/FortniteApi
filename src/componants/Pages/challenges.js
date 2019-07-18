@@ -8,7 +8,8 @@ import styled from 'styled-components';
 // import { Hint } from '../Nav/Navarrows'
 
 const Wrapper = styled.div`
-  // margin: 1.25rem;
+  // margin: 1.25rem 0;
+  min-height: 75vh;
 `;
 
 const TitleContainer = styled.div`
@@ -68,16 +69,23 @@ margin-bottom: 0.25rem;
 }
 `
 const TableHeader = styled.th`
-text-align: left;
+text-align: center;
 font-size: 0.95rem;
 padding-bottom: 0.5rem;
 padding-top: 0.75rem;
+@media (max-width: 748px) {
+  text-align: left;
+}
 `
 
 const TableData = styled.td`
 padding: 0.75rem 0;
+text-align: center;
 // border: 1px solid darkblue;
 background-color: lightgrey;
+@media (max-width: 748px) {
+  text-align: left;
+}
 `
 const Challenges = ({ challenges }) => {
   const seasonInfo =

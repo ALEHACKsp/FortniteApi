@@ -124,7 +124,7 @@ const Home = ({ fetchData, location, news, store }) => {
             <input
               type="text"
               value={value}
-              placeholder=" 'Ninja' "
+              placeholder=" tfue "
               style={{
                 width: '80%',
                 height: '100%',

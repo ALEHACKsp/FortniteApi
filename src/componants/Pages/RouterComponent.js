@@ -45,7 +45,7 @@ const RouterComponent = ({
       <Switch>
         <Route
           exact
-          path="/"
+          path="/home"
           render={location => (
             <Home fetchData={fetchData} location={location} news={news} store={store} />
           )}
@@ -56,20 +56,20 @@ const RouterComponent = ({
             id !== null ? (
               <Lifetime stats={stats} location={location} />
             ) : (
-              <Redirect to="/" />
+              <Redirect to="/home" />
             )
           }
         />
         <Route
           path="/history"
           render={() =>
-            id !== null ? <History history={history} /> : <Redirect to="/" />
+            id !== null ? <History history={history} /> : <Redirect to="/home" />
           }
         />
          <Route
           path="/current"
           render={() =>
-            id !== null ? <CurrentSeason season={season} /> : <Redirect to="/" />
+            id !== null ? <CurrentSeason season={season} /> : <Redirect to="/home" />
           }
         />
         <Route

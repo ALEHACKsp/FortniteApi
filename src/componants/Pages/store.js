@@ -7,7 +7,7 @@ const StoreCard = styled.div`
   flex-wrap: wrap;
   width: 20%;
   justify-content: center;
- align-items: scenter;
+  align-items: scenter;
   background-color: #e9edf1;
   // width: 10%;
   // border-radius: 0.8rem;
