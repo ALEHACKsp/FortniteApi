@@ -6,12 +6,10 @@ const StoreCard = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 20%;
+  height: 100%
   justify-content: center;
   align-items: scenter;
   background-color: #e9edf1;
-  // width: 10%;
-  // border-radius: 0.8rem;
-  // margin-bottom: 30px;
   @media (max-width: 748px) {
     width: 24.2%;
     border: 1px solid darkgrey;
@@ -21,20 +19,16 @@ const StoreCard = styled.div`
   }
 `;
 const StoreCardImg = styled.img`
-  width: 100%;
+    width: 100%;
+    height: 100%;
 `;
 
 const StoreWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
-
-  // margin: 1.25rem;
-  // padding-top: 2rem;
-  // justify-content: space-between;
+  height: 100%;
   @media (max-width: 748px) {
-    // flex-direction: column;
-    // align-items: center;
+
   }
 `;
 const VBucksCard = styled.div`
