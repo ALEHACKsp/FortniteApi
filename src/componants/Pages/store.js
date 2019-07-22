@@ -5,7 +5,7 @@ import Vbucks from './v-bucks.png'
 const StoreCard = styled.div`
   display: flex;
   flex-wrap: wrap;
-  max-width: 20%;
+  width: 20%;
   height: 100%
   justify-content: center;
   align-items: scenter;
@@ -79,7 +79,7 @@ const Store = ({ store }) => {
           <StoreCardImg src={data.imageUrl} alt="(unvaulted) Current store" name="unvaulted" />
           <VBucksCard>
             <img
-              style={{width: "25px", maxHeight:  "100%"}}
+              style={{width: "25px", maxHeight:  "25px"}}
               src={Vbucks}
               alt="(unvaulted) vBucks"
               name="unvaulted"
