@@ -112,6 +112,7 @@ class FortniteApi extends Component {
         return response.json();
       })
       .then(myJson => {
+        console.log("myJson",myJson)
         const weeks = myJson;
         this.setState({ challenges: weeks });
       });

@@ -37,6 +37,7 @@ const ScoresSection = styled.div`
 
 const Section = styled.div`
 padding: 1rem 0rem;
+background-color: #e9edf1;
 `
 
 const SectionTitle = styled.h2`

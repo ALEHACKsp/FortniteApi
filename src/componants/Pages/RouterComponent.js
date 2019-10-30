@@ -12,6 +12,7 @@ import History from './stats/History';
 import CurrentSeason from './stats/currentSeason'
 import Challenges from './Challenges';
 import GameSettings from './gameSettings';
+import Chat from './Chat.js';
 import News from './in_game_news';
 
 const RouteStyle = styled.div`
@@ -90,6 +91,7 @@ const RouterComponent = ({
           )}
         />
         <Route path="/gameSettings" render={() => <GameSettings />} />
+        <Route path="/chat" render={() => <Chat />} />
       </Switch>
     </RouteStyle>
   );

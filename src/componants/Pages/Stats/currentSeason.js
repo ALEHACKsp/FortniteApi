@@ -22,6 +22,7 @@ const SectionText = styled.h3`
 
 const Section = styled.div`
 padding: 1rem 0rem;
+background-color: #e9edf1;
 `
 const SectionTitle = styled.h2`
 text-decoration: underline grey;
