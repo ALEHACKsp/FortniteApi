@@ -155,10 +155,10 @@ class FortniteApi extends Component {
           fetchData={this.fetchFortniteData}
           stats={this.state.stats}
           history={this.state.history}
-          challenges={this.state.challenges}
+          // challenges={this.state.challenges}
           store={this.state.store}
           id={this.state.id}
-          news={this.state.news}
+          // news={this.state.news}
           season={this.state.seasonStats}
         />
         <Footer />

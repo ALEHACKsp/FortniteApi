@@ -47,17 +47,15 @@ class Chat extends Component {
       });
 
     ws.onopen = evt => {
-      console.log('evt', evt);
-      const data = {
-        uid: 1
-      };
-      const newData = JSON.stringify(data);
-      ws.send(newData);
-      console.log('connected', newData);
+      console.log('connected');
     };
 
     ws.onmessage = evt => {
-      console.log('onmessage', typeof evt.data);
+      console.log('onmessage', evt.data);
+
+      if (evt.data === 'wsId') {
+        console.log(true)
+      }
       // on receiving a message, add it to the list of messages
 
       const message = JSON.parse(evt.data);

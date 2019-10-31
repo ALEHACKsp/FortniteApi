@@ -84,12 +84,12 @@ const RouterComponent = ({
           path="/challenges"
           render={() => <Challenges challenges={challenges} />}
         />
-        <Route
+        {/* <Route
           path="/news"
           render={location => (
             <News news={news} location={location}/>
-          )}
-        />
+          )} */}
+        {/* /> */}
         <Route path="/gameSettings" render={() => <GameSettings />} />
         <Route path="/chat" render={() => <Chat />} />
       </Switch>
