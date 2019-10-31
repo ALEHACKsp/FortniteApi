@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const ws = new WebSocket('ws://unvaluted.co.uk/chat');
+const ws = new WebSocket('wss://unvaluted.co.uk/chat');
 
 const InputMessage = styled.input`
   width: 80%;
